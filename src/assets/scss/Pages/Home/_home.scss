@@ -1,0 +1,70 @@
+.carousel {
+  position: relative;
+  height: 530px;
+  // background-repeat: no-repeat;
+  // background-size: contain;
+  // background-position: bottom;
+  overflow: hidden;
+  .carousel-control-prev,
+  .carousel-control-next {
+    background: transparent;
+    border: none;
+
+    .polygon-1 {
+      position: absolute;
+      left: 40px;
+      top: 165px;
+    }
+
+    .polygon-2 {
+      position: absolute;
+      right: 40px;
+      top: 165px;
+    }
+  }
+  .carousel__circle {
+    // bottom: -95px;
+    .carousel__circleItem {
+      width: 15px;
+      height: 15px;
+      border-radius: 50%;
+      border: 1px solid #00000021;
+      background-color: $bg-c1-secondary;
+      margin-right: 20px;
+    }
+  }
+  .carousel-item.active {
+    display: flex;
+    align-items: center;
+    // background-image: url("../../img/image6.png");
+
+    // display: flex;
+    justify-content: space-around;
+    // align-items: center;
+    .carousel__left {
+      width: 70%;
+      //   position: absolute;
+
+      img {
+        // width: 100%;
+        top: 0;
+        right: 55%;
+        transform: translate(-50%, -50%);
+        transform: rotateY(180deg);
+      }
+    }
+    .carousel__right {
+      width: 50%;
+      padding-bottom: 120px;
+      padding-right: 150px;
+      h5 {
+        @include text($fs4, $fw4, $c-primary-dark, $lh4);
+      }
+      p {
+        @include text($fs3, $fw3, $c-primary-dark, $lh4);
+      }
+      .btn__buynow {
+      }
+    }
+  }
+}

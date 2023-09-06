@@ -1,0 +1,100 @@
+.header__main {
+  background-color: $bg-primary-dark;
+  height: 68px;
+  .container-fluid {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    .header__logo {
+      height: 60px;
+      width: 125px;
+      padding: 15px 0;
+      margin-left: 20px;
+      img {
+        width: 100%;
+      }
+    }
+    .header__content {
+      height: 40px;
+
+      ul {
+        padding: 10px;
+        li {
+          .header__search {
+            @include text($fs5, $fw3, $c-primary-light, $lh1);
+          }
+        }
+        li {
+          .header__carts {
+            display: flex;
+            align-items: center;
+            height: 30px;
+            width: 75px;
+            img {
+              width: 100%;
+            }
+            span {
+              padding-left: 10px;
+              @include text($fs3, $fw3, $c-primary-light, $lh1);
+            }
+          }
+        }
+        li {
+          .header__login {
+            @include text($fs3, $fw3, $c-primary-light, $lh1);
+          }
+        }
+        li {
+          .header__register {
+            @include text($fs3, $fw3, $c-primary-light, $lh1);
+          }
+        }
+      }
+    }
+  }
+}
+
+.header__menu {
+  height: 75px;
+  .container-fluid {
+    .navbar {
+      .menu__wrap {
+        button {
+          span {
+          }
+        }
+      }
+      .navbar-collapse {
+        .nav__menu {
+          // padding-right: 10px;
+          .nav__link {
+            position: relative;
+            margin-left: 15px;
+            @include text($fs3, $fw3, $c-primary-dark, $lh1);
+
+            &::before {
+              width: 100%;
+              position: absolute;
+              content: "";
+              height: 2px;
+              left: 0;
+              bottom: -2px;
+              background-color: $bg-c5-secondary;
+              transform: scale(0, 1);
+              transition: linear 0.3s;
+            }
+            &:hover {
+              color: $c-c7-secondary!important;
+              &::before {
+                  transform: scale(1, 1);
+              }
+            }
+          }
+          .nav-link {
+          }
+        }
+      }
+    }
+  }
+}

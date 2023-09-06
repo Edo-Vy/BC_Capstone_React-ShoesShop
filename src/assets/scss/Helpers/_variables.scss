@@ -1,0 +1,79 @@
+// font-size
+$fs1: 12px;
+$fs2: 16px;
+$fs3: 20px;
+$fs4: 24px;
+$fs5: 30px;
+$fs6: 40px;
+
+
+// font-weight
+$fw1: 100;
+$fw2: 200;
+$fw3: 300;
+$fw4: 400;
+$fw5: 500;
+$fw6: 600;
+$fw7: 700;
+$fw8: 800;
+$fw9: 900;
+
+// color
+$c-primary-dark: #000000;
+$c-secondary-dark: rgba(0, 0, 0, 0.7);
+$c-primary-light: #FFFFFF;
+$c-c1-secondary: #FFFCFC;
+$c-c2-secondary: #F7F7F7;
+$c-c3-secondary: #CBC9C9;
+$c-c4-secondary: #030303;
+$c-c5-secondary: #F8B653;
+$c-c6-secondary: #DEDDDC;
+$c-c7-secondary: #E1B067;
+
+$c-c8-secondary: #F8F8F8;//bg-img
+$c-c9-secondary:#140101;//h3
+$c-c10-secondary:#1ED90E;//h4
+$c-c11-secondary:#1E1D1D;//span button
+$c-c12-secondary:#CCCCCC;//bg-button
+$c-c13-secondary:#FC0303;//gia
+$c-c14-secondary:#DEDDDC;
+$c-c15-secondary:#D9D9D9;
+$c-c16-secondary:#AE18E2;//bg submit
+
+
+// background-color
+$bg-primary-dark: #000000;
+$bg-c1-secondary: #F8F8F8;//bg-img
+$bg-c2-secondary:#CCCCCC;//bg-button
+$bg-c3-secondary9:#AE18E2;//bg submit
+$bg-c4-secondary : #DEDDDC;
+$bg-c5-secondary: #F8B653;
+
+
+//line-height
+$lh1: 24.2px;
+$lh2: 19px;
+$lh3: 36px;
+$lh4: 48.41px;
+$lh5: 29px;
+$lh6: 64px;
+$lh7: 10px;
+$lh8:16px;
+
+//padding,margin
+$mg3: 3rem;
+$mg5: 5rem;
+$pd2: 2rem;
+$pd5: 15px;
+
+//btn size,+-
+$w5:50px;
+$h5:50px;
+//btnAdd
+$w1:175px;
+$h1:64px;
+
+//bg-btn
+$bg-liner1:linear-gradient(180deg, #6181F3 0%, #7C97F5 99.48%);//bg + -
+$bg-liner2:linear-gradient(270deg, rgba(62, 32, 248, 0.9) 5.14%, #D017EE 89.71%);//btnAdd
+
