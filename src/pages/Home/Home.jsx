@@ -1,10 +1,11 @@
 import React from "react";
-import { NavLink } from 'react-router-dom'
+import { NavLink } from "react-router-dom";
+import Product from '../../components/Product/Product'
 export default function Home() {
   return (
     <div>
       {/* carousel */}
-      <section classname="carousel ">
+      <section classname="carousel">
         <div
           id="carouselExampleCaptions"
           className="carousel slide "
@@ -36,25 +37,27 @@ export default function Home() {
           </div>
           <div className="carousel-inner">
             <div className="carousel-item active">
-              <div className="carousel-left">
+              <div className="carousel__left">
                 <img src="./img/adidas.png" className="" alt="..." />
               </div>
-              <div className="carousel-caption carousel-right">
-                <h5>First slide label</h5>
+              <div className="carousel__right">
+                <h5>Third slide label</h5>
                 <p>
-                  Some representative placeholder content for the first slide.
+                  Some representative placeholder content for the third slide.
                 </p>
+                <NavLink className="btn__buynow">Buy Now</NavLink>
               </div>
             </div>
             <div className="carousel-item">
-              <div className="carousel-left">
+              <div className="carousel__left">
                 <img src="./img/adidas.png" className="" alt="..." />
               </div>
-              <div className="carousel-caption carousel-right">
-                <h5>Second slide label</h5>
+              <div className="carousel__right">
+                <h5>Third slide label</h5>
                 <p>
-                  Some representative placeholder content for the second slide.
+                  Some representative placeholder content for the third slide.
                 </p>
+                <NavLink className="btn__buynow">Buy Now</NavLink>
               </div>
             </div>
             <div className="carousel-item">
@@ -77,7 +80,12 @@ export default function Home() {
             data-bs-slide="prev"
           >
             {/* <span className="carousel-control-prev-icon" aria-hidden="true" /> */}
-            <img className="polygon-1" src="./img/Polygon 2.png" aria-hidden="true" alt="..." />
+            <img
+              className="polygon-1"
+              src="./img/Polygon 2.png"
+              aria-hidden="true"
+              alt="..."
+            />
             <span className="visually-hidden">Previous</span>
           </button>
           <button
@@ -87,14 +95,30 @@ export default function Home() {
             data-bs-slide="next"
           >
             {/* <span className="carousel-control-next-icon" aria-hidden="true" /> */}
-            <img className="polygon-2" src="./img/Polygon 1.png" aria-hidden="true" alt="..." />
+            <img
+              className="polygon-2"
+              src="./img/Polygon 1.png"
+              aria-hidden="true"
+              alt="..."
+            />
             <span className="visually-hidden">Next</span>
           </button>
         </div>
-       
-
       </section>
 
+      {/* Product */}
+      <section className="product">
+        <div className="container">
+          <h3>Product Feture</h3>
+
+          <div className="row">
+            <Product/>
+            <Product/>
+            <Product/>
+            <Product/>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }

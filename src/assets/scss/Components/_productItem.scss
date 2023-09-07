@@ -1,0 +1,57 @@
+.card {
+  height: 369px;
+  width: 334px;
+  position: relative;
+  margin: 10px;
+  .card__img {
+    position: absolute;
+    display: flex;
+    height: 200px;
+    align-items: center;
+    top: 15px;
+    img {
+      width: 90%;
+    }
+    .product__heart {
+      position: absolute;
+      height: 50px;
+      width: 45px;
+      top: 0;
+      right: 0;
+      .fa-heart{
+          font-size: 40px;
+          color: $c-c17-secondary;
+      }
+    }
+  }
+  .card__title {
+    position: absolute;
+    bottom: 80px;
+    left: 30px;
+    h3 {
+      @include text($fs4, $fw3, $c-primary-dark, $lh1);
+    }
+    p {
+      @include text($fs3, $fw4, $c-primary-dark, $lh1);
+    }
+  }
+  .card__des {
+    position: absolute;
+    display: flex;
+    bottom: 0;
+    height: 64px;
+    .btn__add {
+      width: 175px;
+      border: none;
+      background-color: $bg-c6-secondary;
+    }
+    p {
+      height: 64px;
+      width: 160px;
+      @include text($fs3, $fw4, $c-primary-dark, $lh1);
+      background-color: $bg-c4-secondary;
+      padding-top: 20px;
+      padding-left: 50px;
+    }
+  }
+}
