@@ -1,22 +1,33 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
 import './assets/scss/styles.scss';
 // Cấu hình
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import HomeTemplate from './templates/HomeTemplate/HomeTemplate';
 import Home from './pages/Home/Home';
+// Redux
+import { Provider } from 'react-redux';
+import { store } from '../src/redux/configStore'
+// history
+import { createBrowserHistory } from 'history';
+import { unstable_HistoryRouter as HistoryRouter } from 'react-router-dom';
+
+export const history = createBrowserHistory();
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
+  < Provider store={store}>
+    {/* <BrowserRouter> */}
+    <HistoryRouter history={history}>
+      <Routes>
+        <Route path='' element={<HomeTemplate />}>
+          <Route index element={<Home />}></Route>
+        </Route>
+      </Routes>
 
-  <BrowserRouter>
-    <Routes>
-      <Route path='' element={<HomeTemplate />}>
-        <Route index element={<Home />}></Route>
-      </Route>
-    </Routes>
-
-  </BrowserRouter>
+      {/* </BrowserRouter> */}
+    </HistoryRouter>
+  </Provider>
 
 );

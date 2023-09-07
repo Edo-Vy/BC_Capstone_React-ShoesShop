@@ -1,5 +1,5 @@
 import axios from 'axios';
-// import {history} from '../index'
+import {history} from '../index'
 export const configs = {
     setStore: (name,values)=>{
         localStorage.setItem(name,values);
@@ -51,7 +51,6 @@ export const configs = {
 
 export const {ACCESS_TOKEN,USER_LOGIN,getCookie,setCookie,getStore,setStore,getStoreJSON,setStoreJSON,clearCookie,clearLocalStorage} = configs;
 
-const TOKEN_CYBERSOFT = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0ZW5Mb3AiOiJCb290Y2FtcCAyOCIsIkhldEhhblN0cmluZyI6IjI1LzAyLzIwMjMiLCJIZXRIYW5UaW1lIjoiMTY3NzI4MzIwMDAwMCIsIm5iZiI6MTY0Nzk2ODQwMCwiZXhwIjoxNjc3NDMwODAwfQ.wEdmkKpVZbDB4s4L_cmLwJ1O8le8Cc-VMgLZCI-HvLA';
 
 //Cấu hình interceptor (Cấu hình cho các request và response)
 
@@ -67,7 +66,7 @@ http.interceptors.request.use((configs)=> {
     configs.headers = {
         ...configs.headers,
         ['Authorization']: `Bearer ${getStore(ACCESS_TOKEN)}`,
-        // ['TokenCybersoft']: TOKEN_CYBERSOFT
+        
     }
 
     return configs;
@@ -96,12 +95,12 @@ http.interceptors.response.use((response) => {
     // const originalRequest = error.config;
     console.log(err.response.status);
     if(err.response.status === 400 || err.response.status === 404) {
-        // history.push('/');
+        history.push('/');
         return  Promise.reject(err);
     }
     if(err.response.status === 401 || err.response.status === 403) {
         alert('Token không hợp lệ ! Vui lòng đăng nhập lại !');
-        // history.push('/login');
+        history.push('/login');
         return Promise.reject(err)
     }
 })

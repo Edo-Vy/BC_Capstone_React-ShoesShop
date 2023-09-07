@@ -1,16 +1,24 @@
 .card {
-  height: 369px;
+  height: 400px;
   width: 334px;
   position: relative;
   margin: 10px;
+  border: none;
+  background-color: $bg-c1-secondary;
   .card__img {
     position: absolute;
     display: flex;
     height: 200px;
     align-items: center;
     top: 15px;
+    left: 15px;
+
     img {
+      padding: 15px;
       width: 90%;
+      &:hover{
+        transform: scale(1.5);
+      }
     }
     .product__heart {
       position: absolute;
@@ -18,21 +26,22 @@
       width: 45px;
       top: 0;
       right: 0;
-      .fa-heart{
-          font-size: 40px;
-          color: $c-c17-secondary;
+      .fa-heart {
+        font-size: 35px;
+        color: $c-c17-secondary;
       }
     }
   }
   .card__title {
     position: absolute;
-    bottom: 80px;
+    bottom: 88px;
     left: 30px;
     h3 {
+      height: 29px;
       @include text($fs4, $fw3, $c-primary-dark, $lh1);
     }
     p {
-      @include text($fs3, $fw4, $c-primary-dark, $lh1);
+      @include text($fs3, $fw4, $c-c3-secondary, $lh1);
     }
   }
   .card__des {
@@ -44,6 +53,9 @@
       width: 175px;
       border: none;
       background-color: $bg-c6-secondary;
+      @include text($fs4, $fw4, $c-primary-dark, $lh1);
+      text-align: center;
+      padding-top: 20px;
     }
     p {
       height: 64px;
@@ -53,5 +65,17 @@
       padding-top: 20px;
       padding-left: 50px;
     }
+  }
+}
+
+@keyframes zoom-in-zoom-out {
+  0% {
+    transform: scale(1, 1);
+  }
+  50% {
+    transform: scale(1.5, 1.5);
+  }
+  100% {
+    transform: scale(1, 1);
   }
 }

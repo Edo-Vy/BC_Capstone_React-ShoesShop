@@ -1,80 +1,46 @@
-.carousel {
-  position: relative;
+.carousel__main {
   height: 530px;
-  // background-repeat: no-repeat;
-  // background-size: contain;
-  // background-position: bottom;
-  overflow: hidden;
-  .carousel-control-prev,
-  .carousel-control-next {
-    background: transparent;
-    border: none;
-
-    .polygon-1 {
-      position: absolute;
-      left: 40px;
-      top: 165px;
-    }
-
-    .polygon-2 {
-      position: absolute;
-      right: 40px;
-      top: 165px;
-    }
-  }
-  .carousel__circle {
-    // bottom: -95px;
-    .carousel__circleItem {
-      width: 15px;
-      height: 15px;
-      border-radius: 50%;
-      border: 1px solid #00000021;
-      background-color: $bg-c1-secondary;
-      margin-right: 20px;
-    }
-  }
-  .carousel-item.active {
-    // height: 530px;
-    display: flex;
-    align-items: center;
-    // background-image: url("../../img/image6.png");
-
-    // display: flex;
-  //    background-repeat: no-repeat;
-  // background-size: contain;
-  // background-position: bottom;
-    justify-content: space-around;
-    // align-items: center;
-    .carousel__left {
-      
-      width: 70%;
-      //   position: absolute;
-
-      img {
-        // width: 100%;
-        top: 0;
-        right: 55%;
-        transform: translate(-50%, -50%);
-        transform: rotateY(180deg);
+  position: relative;
+  .carousel__slide {
+    .carousel__item {
+      // position: absolute;
+      display: flex;
+      .carousel__image {
+        width: 70%;
+        img {
+          position: absolute;
+          top: 0;
+          left: 10%;
+          // transform: translate(-50%, -50%);
+          transform: rotateY(180deg);
+        }
       }
-    }
-    .carousel__right {
-      width: 50%;
-      padding-bottom: 120px;
-      padding-right: 150px;
-      h5 {
-        @include text($fs4, $fw4, $c-primary-dark, $lh4);
-      }
-      p {
-        @include text($fs3, $fw3, $c-primary-dark, $lh4);
-      }
-      .btn__buynow {
+      .carousel__content {
+        width: 50%;
+        padding-bottom: 120px;
+        padding-right: 150px;
+       
+        h2 {
+        }
+        p {
+        }
+        .btn__buy {
+        }
       }
     }
   }
 }
 
-
+//====
 .product {
-  height: 1044px;
+  // height: 1044px;
+  .container {
+    .product__title {
+      height: 74px;
+      width: 698px;
+      background: $bg-liner2;
+      padding: 10px;
+      @include text($fs6, $fw4, $c-primary-light, $lh4);
+    }
+  }
 }

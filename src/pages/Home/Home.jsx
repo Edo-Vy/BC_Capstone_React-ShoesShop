@@ -1,124 +1,142 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
-import Product from '../../components/Product/Product'
+import Product from "../../components/Product/Product";
+import { getApiProductAction } from "../../redux/reducers/productReducer";
+
 export default function Home() {
+  //  slick
+
+  // Lấy dữ liệu từ redux
+  const { arrProduct } = useSelector((state) => state.productReducer);
+  const dispatch = useDispatch();
+
+  // render ra giao diện
+  useEffect(() => {
+    const action = getApiProductAction();
+    dispatch(action);
+  }, []);
   return (
     <div>
-      {/* carousel */}
-      <section classname="carousel">
+      <div className="carousel__main ">
         <div
-          id="carouselExampleCaptions"
-          className="carousel slide "
-          data-bs-ride="carousel"
+          className="carousel__slide single-item"
+          style={{ backgroundImage: "url(./img/image6.png)" }}
         >
-          <div class="carousel-indicators carousel__circle">
+          <div className="carousel-indicators">
             <button
               type="button"
-              data-bs-target="#carouselExampleDark"
-              data-bs-slide-to="0"
-              className="carousel__circleItem active"
+              data-bs-target="#carouselExampleCaptions"
+              data-bs-slide-to={0}
+              className="active"
               aria-current="true"
               aria-label="Slide 1"
-            ></button>
+            />
             <button
               type="button"
-              data-bs-target="#carouselExampleDark"
-              data-bs-slide-to="1"
+              data-bs-target="#carouselExampleCaptions"
+              data-bs-slide-to={1}
               aria-label="Slide 2"
-              className="carousel__circleItem"
-            ></button>
+            />
             <button
               type="button"
-              data-bs-target="#carouselExampleDark"
-              data-bs-slide-to="2"
+              data-bs-target="#carouselExampleCaptions"
+              data-bs-slide-to={2}
               aria-label="Slide 3"
-              className="carousel__circleItem"
-            ></button>
+            />
           </div>
+
           <div className="carousel-inner">
-            <div className="carousel-item active">
-              <div className="carousel__left">
-                <img src="./img/adidas.png" className="" alt="..." />
+            <div className=" carousel-item carousel__item active">
+              <div className="carousel__image">
+                <img
+                  src="https://shop.cyberlearn.vn/images/adidas-prophere-customize.png"
+                  alt=""
+                />
               </div>
-              <div className="carousel__right">
-                <h5>Third slide label</h5>
+              <div className="carousel__content">
+                <h2>Adidas Prophere Customize</h2>
                 <p>
-                  Some representative placeholder content for the third slide.
+                  The adidas Primeknit upper wraps the foot with a supportive
+                  fit that enhances movement
                 </p>
-                <NavLink className="btn__buynow">Buy Now</NavLink>
+                <NavLink className="btn__buy">Buy Now</NavLink>
               </div>
             </div>
-            <div className="carousel-item">
-              <div className="carousel__left">
-                <img src="./img/adidas.png" className="" alt="..." />
+            <div className="carousel__item carousel-item">
+              <div className="carousel__image">
+                <img
+                  src="https://shop.cyberlearn.vn/images/adidas-tenisky-super-star.png"
+                  alt=""
+                />
               </div>
-              <div className="carousel__right">
-                <h5>Third slide label</h5>
+              <div className="carousel__content">
+                <h2>Adidas Tenisky Super Star</h2>
                 <p>
-                  Some representative placeholder content for the third slide.
+                  The adidas Primeknit upper wraps the foot with a supportive
+                  fit that enhances movement
                 </p>
-                <NavLink className="btn__buynow">Buy Now</NavLink>
+                <NavLink className="btn__buy">Buy Now</NavLink>
               </div>
             </div>
-            <div className="carousel-item">
-              <div className="carousel__left">
-                <img src="./img/adidas.png" className="" alt="..." />
+            <div className="carousel__item carousel-item">
+              <div className="carousel__image">
+                <img
+                  src="https://shop.cyberlearn.vn/images/adidas-super-star-red.png"
+                  alt=""
+                />
               </div>
-              <div className="carousel__right">
-                <h5>Third slide label</h5>
+              <div className="carousel__content">
+                <h2>Adidas Super Star Red</h2>
                 <p>
-                  Some representative placeholder content for the third slide.
+                  The adidas Primeknit upper wraps the foot with a supportive
+                  fit that enhances movement
                 </p>
-                <NavLink className="btn__buynow">Buy Now</NavLink>
+                <NavLink className="btn__buy">Buy Now</NavLink>
               </div>
             </div>
           </div>
-          <button
-            className="carousel-control-prev"
-            type="button"
-            data-bs-target="#carouselExampleCaptions"
-            data-bs-slide="prev"
-          >
-            {/* <span className="carousel-control-prev-icon" aria-hidden="true" /> */}
-            <img
-              className="polygon-1"
-              src="./img/Polygon 2.png"
-              aria-hidden="true"
-              alt="..."
-            />
-            <span className="visually-hidden">Previous</span>
-          </button>
-          <button
-            className="carousel-control-next"
-            type="button"
-            data-bs-target="#carouselExampleCaptions"
-            data-bs-slide="next"
-          >
-            {/* <span className="carousel-control-next-icon" aria-hidden="true" /> */}
-            <img
-              className="polygon-2"
-              src="./img/Polygon 1.png"
-              aria-hidden="true"
-              alt="..."
-            />
-            <span className="visually-hidden">Next</span>
-          </button>
+
+          <div>
+            <button
+              className="carousel-control-prev"
+              type="button"
+              data-bs-target="#carouselExampleCaptions"
+              data-bs-slide="prev"
+            >
+                <img className="polygon-1" src="./img/Polygon 2.png" aria-hidden="true" alt="..." />
+              <span className="visually-hidden">Previous</span>
+            </button>
+            <button
+              className="carousel-control-next"
+              type="button"
+              data-bs-target="#carouselExampleCaptions"
+              data-bs-slide="next"
+            >
+             <img className="polygon-2" src="./img/Polygon 1.png" aria-hidden="true" alt="..." />
+              <span className="visually-hidden">Next</span>
+            </button>
+          </div>
         </div>
-      </section>
+      </div>
+      {/*  */}
 
       {/* Product */}
-      <section className="product">
+      <div className="product">
         <div className="container">
-          <h3>Product Feture</h3>
+          <h3 className="product__title">Product Feature</h3>
 
           <div className="row">
-            <Product/>
-            <Product/>
-            <Product/>
-            <Product/>
+            {arrProduct.map((prod, index) => {
+              return (
+                <div className="col-4" key={index}>
+                  <Product product={prod} />
+                </div>
+              );
+            })}
           </div>
         </div>
-      </section>
+      </div>
     </div>
   );
 }
