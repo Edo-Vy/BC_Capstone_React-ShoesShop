@@ -69,9 +69,10 @@
     .product__title {
       height: 74px;
       width: 698px;
-      background: $bg-liner2;
-      padding: 10px;
+         padding: 10px;
       @include text($fs6, $fw4, $c-primary-light, $lh4);
+      background: linear-gradient(180deg, #F21299 0%, #1B02B5 100%);
+      margin-bottom: 20px;
     }
   }
 }

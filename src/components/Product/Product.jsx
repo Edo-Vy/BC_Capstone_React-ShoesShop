@@ -6,7 +6,7 @@ export default function Product({product}) {
 
   return (
     <div>
-        <div className="card">
+        <div className="card__pro">
           <div className="card__img">
             <img src={product.image} alt="" />
             <div className="product__heart">
@@ -18,7 +18,7 @@ export default function Product({product}) {
             <p>{product.shortDescription.length > 50 ? product.shortDescription.slice(0,50) +'...' : product.shortDescription}</p>
           </div>
           <div className="card__des">
-            <NavLink className="btn__add">Buy Now</NavLink>
+            <NavLink className="btn__add" to={`/detail/${product.id}`}>Buy Now</NavLink>
             <p>{product.price}$</p>
           </div>
         </div>

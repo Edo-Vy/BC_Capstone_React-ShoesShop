@@ -1,10 +1,12 @@
-.card {
+.card__pro{
   height: 400px;
   width: 334px;
   position: relative;
   margin: 10px;
   border: none;
   background-color: $bg-c1-secondary;
+  box-shadow: 0px 4px 4px 0px #00000040;
+
   .card__img {
     position: absolute;
     display: flex;

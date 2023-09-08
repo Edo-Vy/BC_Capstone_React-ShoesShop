@@ -1,0 +1,112 @@
+.card__detail {
+  display: flex;
+  height: 530px;
+  background-color: transparent;
+  .card__left {
+    width: 334px;
+    position: absolute;
+    height: 355px;
+    left: 64px;
+    display: flex;
+    background-color: $bg-c1-secondary;
+    img {
+        width: 250px;
+        height: 210px;
+        margin-top: 90px;
+        margin-left: 40px;
+        transition: all linear 0.3s;
+        &:hover{
+
+            transform: scale(1.5);   
+        }
+    }
+    .card__heart {
+      height: 48px;
+      width: 41px;
+      position: absolute;
+      top: 15px;
+      right: 20px;
+
+      .fa-heart {
+        @include text($fs6, $fw3, $c-c17-secondary, $lh1);
+      }
+    }
+  }
+  .card__right {
+    position: absolute;
+    left: 527px;
+    width: 600px;
+    h2 {
+      height: 36px;
+      @include text($fs5, $fw3, $c-primary-dark, $lh3);
+    }
+    .card__shortdes {
+      height: 90px;
+      @include text($fs2, $fw4, $c-primary-dark, $lh3);
+    }
+    h3 {
+      padding-top: 10px;
+      height: 58px;
+      @include text($fs4, $fw5, $c-c10-secondary, $lh5);
+    }
+    .button__size {
+      .btn__size {
+        padding: 15px;
+        border: none;
+        margin-right: 15px;
+        background-color: $bg-c2-secondary;
+        @include text($fs4, $fw4, $c-secondary-dark, $lh5);
+      }
+    }
+    .card__price {
+      padding-top: 30px;
+      @include text($fs5, $fw6, $c-c13-secondary, $lh3);
+    }
+    .count__prod {
+      display: flex;
+      .count__down {
+          border: none;
+        width: 50px;
+        height: 50px;
+        background: linear-gradient(180deg, #6181f3 0%, #7c97f5 99.48%);
+        @include text($fs5, $fw4, $c-c1-secondary, $lh3);
+      }
+      .count__total {
+        height: 36px;
+        @include text($fs5, $fw4, $c-primary-dark, $lh3);
+        padding: 5px 30px;
+      }
+      .count__plus {
+          border: none;
+        width: 50px;
+        height: 50px;
+        background: linear-gradient(180deg, #6181f3 0%, #7c97f5 99.48%);
+        @include text($fs5, $fw4, $c-c1-secondary, $lh3);
+      }
+    }
+    .btn__cart {
+        border: none;
+        margin-top: 20px;
+        height: 64px;
+        width: 175px;
+        @include text($fs4, $fw5 ,$c-c1-secondary, $lh5);
+        background: linear-gradient(270deg, rgba(62, 32, 248, 0.9) 5.14%, #D017EE 89.71%);
+
+
+    }
+  }
+}
+
+
+// product
+.product{
+    h3{
+        height: 48px;
+        text-align: center;
+        @include text($fs6, $fw4 ,$c-primary-dark, $lh4);
+
+    }
+    .product__wrap{
+        margin-bottom: 30px;
+    }
+}

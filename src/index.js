@@ -5,6 +5,7 @@ import './assets/scss/styles.scss';
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import HomeTemplate from './templates/HomeTemplate/HomeTemplate';
 import Home from './pages/Home/Home';
+import Detail from './pages/Detail/Detail.jsx';
 // Redux
 import { Provider } from 'react-redux';
 import { store } from '../src/redux/configStore'
@@ -23,6 +24,9 @@ root.render(
       <Routes>
         <Route path='' element={<HomeTemplate />}>
           <Route index element={<Home />}></Route>
+          <Route path='detail'>
+            <Route path=':id' element={<Detail/>}></Route>
+          </Route>
         </Route>
       </Routes>
 

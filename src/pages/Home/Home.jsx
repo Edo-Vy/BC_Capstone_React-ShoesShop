@@ -96,7 +96,7 @@ export default function Home() {
                       The adidas Primeknit upper wraps the foot with a
                       supportive fit that enhances movement
                     </p>
-                    <NavLink className="btn btn__buy">Buy Now</NavLink>
+                    <NavLink className="btn btn__buy" >Buy Now</NavLink>
                   </div>
                 </div>
               </div>
