@@ -1,5 +1,5 @@
 .header__main {
-  background-color: $bg-primary-dark;
+  background-color: $bg-c8-secondary;
   height: 68px;
   .container-fluid {
     display: flex;
@@ -56,7 +56,7 @@
 }
 
 .header__menu {
-  height: 75px;
+  height: 65px;
   .container-fluid {
     .navbar {
       .menu__wrap {
@@ -85,9 +85,9 @@
               transition: linear 0.3s;
             }
             &:hover {
-              color: $c-c7-secondary!important;
+              color: $c-c7-secondary !important;
               &::before {
-                  transform: scale(1, 1);
+                transform: scale(1, 1);
               }
             }
           }

@@ -1,33 +1,64 @@
-.carousel__main {
+.carousel {
   height: 530px;
   position: relative;
-  .carousel__slide {
-    .carousel__item {
-      // position: absolute;
+
+  .carousel-indicators {
+    position: absolute;
+    button {
+      height: 15px;
+      width: 15px;
+      border-radius: 50%;
+      background-color: $bg-c5-secondary;
+      padding: 5px;
+      border: 1px solid $c-c5-secondary;
+    }
+  }
+
+  .carousel-inner {
+    position: absolute;
+    top: 0;
+    padding: 0 10%;
+    height: 383px;
+    .carousel-item.active{
+      transition: transform 0.8s ease;
       display: flex;
-      .carousel__image {
+      .card__left { 
+        height: 383px;
         width: 70%;
         img {
-          position: absolute;
-          top: 0;
-          left: 10%;
-          // transform: translate(-50%, -50%);
-          transform: rotateY(180deg);
+            transform: rotateY(180deg);
         }
       }
-      .carousel__content {
+      .card__right {
+        padding: 30px 0;
+        margin-top: 70px;
         width: 50%;
-        padding-bottom: 120px;
-        padding-right: 150px;
-       
-        h2 {
+        h5 {
+          @include text($fs6, $fw4, $c-primary-dark, $lh4);
         }
         p {
+          @include text($fs3, $fw3, $c-primary-dark, $lh4);
         }
         .btn__buy {
+          height: 50px;
+          padding: 15px;
+          border: none;
+          background-color: $bg-c7-secondary;
+          text-align: center;
+          @include text($fs3, $fw3,  $c-primary-light, $lh1);
+          &:hover{
+            
+          }
         }
       }
     }
+  }
+
+
+  .carousel-control-prev,
+  .carousel-control-next {
+    position: absolute;
+    width: 7%;
   }
 }
 

@@ -18,108 +18,120 @@ export default function Home() {
   }, []);
   return (
     <div>
-      <div className="carousel__main ">
-        <div
-          className="carousel__slide single-item"
-          style={{ backgroundImage: "url(./img/image6.png)" }}
-        >
-          <div className="carousel-indicators">
-            <button
-              type="button"
-              data-bs-target="#carouselExampleCaptions"
-              data-bs-slide-to={0}
-              className="active"
-              aria-current="true"
-              aria-label="Slide 1"
-            />
-            <button
-              type="button"
-              data-bs-target="#carouselExampleCaptions"
-              data-bs-slide-to={1}
-              aria-label="Slide 2"
-            />
-            <button
-              type="button"
-              data-bs-target="#carouselExampleCaptions"
-              data-bs-slide-to={2}
-              aria-label="Slide 3"
-            />
-          </div>
-
-          <div className="carousel-inner">
-            <div className=" carousel-item carousel__item active">
-              <div className="carousel__image">
-                <img
-                  src="https://shop.cyberlearn.vn/images/adidas-prophere-customize.png"
-                  alt=""
-                />
-              </div>
-              <div className="carousel__content">
-                <h2>Adidas Prophere Customize</h2>
-                <p>
-                  The adidas Primeknit upper wraps the foot with a supportive
-                  fit that enhances movement
-                </p>
-                <NavLink className="btn__buy">Buy Now</NavLink>
+      {/*  */}
+      <div className="carousel">
+        <div className="carousel-overflow overflow-hidden">
+          <div
+            id="carouselExampleCaptions"
+            className="carousel slide"
+            data-bs-ride="carousel"
+          
+          >
+            <div className="carousel-indicators">
+              <button
+                type="button"
+                data-bs-target="#carouselExampleCaptions"
+                data-bs-slide-to={0}
+                className="active"
+                aria-current="true"
+                aria-label="Slide 1"
+              />
+              <button
+                type="button"
+                data-bs-target="#carouselExampleCaptions"
+                data-bs-slide-to={1}
+                aria-label="Slide 2"
+              />
+              <button
+                type="button"
+                data-bs-target="#carouselExampleCaptions"
+                data-bs-slide-to={2}
+                aria-label="Slide 3"
+              />
+            </div>
+            <div className="carousel-inner">
+              <div className="carousel-overflow overflow-hidden">
+                <div className="carousel-item active">
+                  <div className="card__left">
+                    <img
+                      src="https://shop.cyberlearn.vn/images/adidas-prophere.png"
+                      alt=""
+                    />
+                  </div>
+                  <div className="card__right">
+                    <h5>Adidas Prophere</h5>
+                    <p>
+                      The adidas Primeknit upper wraps the foot with a
+                      supportive fit that enhances movement
+                    </p>
+                    <NavLink className="btn btn__buy">Buy Now</NavLink>
+                  </div>
+                </div>
+                <div className="carousel-item">
+                  <div className="card__left">
+                    <img
+                      src="https://shop.cyberlearn.vn/images/adidas-super-star-red.png"
+                      alt=""
+                    />
+                  </div>
+                  <div className="card__right">
+                    <h5>Adidas Super Star Red</h5>
+                    <p>
+                      The adidas Primeknit upper wraps the foot with a
+                      supportive fit that enhances movement
+                    </p>
+                    <NavLink className="btn btn__buy">Buy Now</NavLink>
+                  </div>
+                </div>
+                <div className="carousel-item">
+                  <div className="card__left">
+                    <img
+                      src="https://shop.cyberlearn.vn/images/adidas-yeezy-350.png"
+                      alt=""
+                    />
+                  </div>
+                  <div className="card__right">
+                    <h5>Adidas Yeezy 350</h5>
+                    <p>
+                      The adidas Primeknit upper wraps the foot with a
+                      supportive fit that enhances movement
+                    </p>
+                    <NavLink className="btn btn__buy">Buy Now</NavLink>
+                  </div>
+                </div>
               </div>
             </div>
-            <div className="carousel__item carousel-item">
-              <div className="carousel__image">
-                <img
-                  src="https://shop.cyberlearn.vn/images/adidas-tenisky-super-star.png"
-                  alt=""
-                />
-              </div>
-              <div className="carousel__content">
-                <h2>Adidas Tenisky Super Star</h2>
-                <p>
-                  The adidas Primeknit upper wraps the foot with a supportive
-                  fit that enhances movement
-                </p>
-                <NavLink className="btn__buy">Buy Now</NavLink>
-              </div>
-            </div>
-            <div className="carousel__item carousel-item">
-              <div className="carousel__image">
-                <img
-                  src="https://shop.cyberlearn.vn/images/adidas-super-star-red.png"
-                  alt=""
-                />
-              </div>
-              <div className="carousel__content">
-                <h2>Adidas Super Star Red</h2>
-                <p>
-                  The adidas Primeknit upper wraps the foot with a supportive
-                  fit that enhances movement
-                </p>
-                <NavLink className="btn__buy">Buy Now</NavLink>
-              </div>
-            </div>
           </div>
-
-          <div>
-            <button
-              className="carousel-control-prev"
-              type="button"
-              data-bs-target="#carouselExampleCaptions"
-              data-bs-slide="prev"
-            >
-                <img className="polygon-1" src="./img/Polygon 2.png" aria-hidden="true" alt="..." />
-              <span className="visually-hidden">Previous</span>
-            </button>
-            <button
-              className="carousel-control-next"
-              type="button"
-              data-bs-target="#carouselExampleCaptions"
-              data-bs-slide="next"
-            >
-             <img className="polygon-2" src="./img/Polygon 1.png" aria-hidden="true" alt="..." />
-              <span className="visually-hidden">Next</span>
-            </button>
-          </div>
+          <button
+            className="carousel-control-prev"
+            type="button"
+            data-bs-target="#carouselExampleCaptions"
+            data-bs-slide="prev"
+          >
+            <img
+              className="polygon-1"
+              src="./img/Polygon 2.png"
+              aria-hidden="true"
+              alt="..."
+            />
+            <span className="visually-hidden">Previous</span>
+          </button>
+          <button
+            className="carousel-control-next"
+            type="button"
+            data-bs-target="#carouselExampleCaptions"
+            data-bs-slide="next"
+          >
+            <img
+              className="polygon-2"
+              src="./img/Polygon 1.png"
+              aria-hidden="true"
+              alt="..."
+            />
+            <span className="visually-hidden">Next</span>
+          </button>
         </div>
       </div>
-      {/*  */}
 
       {/* Product */}
       <div className="product">
