@@ -6,6 +6,8 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import HomeTemplate from './templates/HomeTemplate/HomeTemplate';
 import Home from './pages/Home/Home';
 import Detail from './pages/Detail/Detail.jsx';
+import Cart from './pages/Cart/Cart';
+
 // Redux
 import { Provider } from 'react-redux';
 import { store } from '../src/redux/configStore'
@@ -27,6 +29,7 @@ root.render(
           <Route path='detail'>
             <Route path=':id' element={<Detail/>}></Route>
           </Route>
+          <Route path='cart' element={<Cart/>}></Route>
         </Route>
       </Routes>
 

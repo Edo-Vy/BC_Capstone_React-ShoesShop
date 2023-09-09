@@ -19,7 +19,7 @@ export default function Header() {
                 </NavLink>
               </li>
               <li>
-                <NavLink className="header__carts p-3" to="/">
+                <NavLink className="header__carts p-3" to="/cart">
                   <img
                     src="./img/cart.png"
                     style={{ cursor: "pointer" }}

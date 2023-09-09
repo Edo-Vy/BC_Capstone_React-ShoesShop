@@ -5,7 +5,7 @@ import { useParams } from "react-router-dom";
 import Product from "../../components/Product/Product";
 import { getApiProDetailAction } from "../../redux/reducers/productReducer";
 
-export default function Detail() {
+export default function Detail(props) {
   const { proDetail } = useSelector((state) => state.productReducer);
   const params = useParams();
   const dispatch = useDispatch();
@@ -30,11 +30,11 @@ export default function Detail() {
           <div className="button__size">
             {proDetail?.size?.map((size, index) => {
               return (
-                <>
+               
                   <span className="btn__size" key={index}>
                     {size}
                   </span>
-                </>
+               
               );
             })}
             {/* <button className="btn__size">38</button>

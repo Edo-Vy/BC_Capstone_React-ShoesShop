@@ -1,0 +1,72 @@
+.cart {
+  margin-left: 69px;
+  margin-top: 15px;
+  .cart__title {
+    position: relative;
+    @include text($fs6, $fw4, $c-primary-dark, $lh4);
+    &::before {
+      position: absolute;
+      content: "";
+      top: 70px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      border: 1px solid #dedddc;
+      background-color: $bg-c4-secondary;
+    }
+  }
+  .cart__wrap {
+      margin-top: 65px;
+    .cart__table {
+      .thead {
+        tr {
+          th {
+            input {
+            }
+          }
+          th {
+          }
+        }
+      }
+      .tbody {
+        tr {
+          .cart__check {
+            .checkbox {
+            }
+          }
+          .cart__id {
+          }
+          .cart__img {
+            img {
+            }
+          }
+          .cart__name {
+          }
+          .cart__price {
+          }
+          .cart__quantity {
+            .btn__down {
+            }
+            .count__total {
+            }
+            .btn__plus {
+            }
+          }
+          .cart__total {
+          }
+          .cart__action {
+            .btn__edit {
+            }
+            .btn__del {
+            }
+          }
+        }
+      }
+
+      .tfoot {
+        .btn__subOrder {
+        }
+      }
+    }
+  }
+}
