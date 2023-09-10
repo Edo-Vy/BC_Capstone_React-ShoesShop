@@ -15,7 +15,7 @@ const productReducer = createSlice({
       const arrProducts = action.payload;
       state.arrProduct = arrProducts;
     },
-    setProDetailAcyion : (state, action) =>{
+    setProDetailAction : (state, action) =>{
      // Lấy dữ liệu từ payload component dispatch lên
       const proDetails = action.payload;
        // Cập nhật lại state
@@ -24,7 +24,7 @@ const productReducer = createSlice({
   },
 });
 
-export const { setArrProductAction, setProDetailAcyion } = productReducer.actions;
+export const { setArrProductAction, setProDetailAction } = productReducer.actions;
 
 export default productReducer.reducer;
 
@@ -58,7 +58,7 @@ export const getApiProDetailAction = (idProduct) =>{
 
       let result = await http.get(`/Product/getbyid?id= ${idProduct}`);
 
-      const action = setProDetailAcyion(result.data.content);
+      const action = setProDetailAction(result.data.content);
       dispatch(action);
 
     } catch (erro) {

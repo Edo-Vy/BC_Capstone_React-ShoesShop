@@ -1,8 +1,13 @@
 // rfc
 import React from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
+import { sl } from "../../util/config";
 
 export default function Header() {
+
+  const {listCartTemp} = useSelector(state => state.cartReducer);
+  const dispatch = useDispatch();
   return (
     <>
       <div className="header__main">
@@ -25,7 +30,7 @@ export default function Header() {
                     style={{ cursor: "pointer" }}
                     alt="cart"
                   />
-                  <span>1</span>
+                  <span>({sl(listCartTemp,"Number")})</span>
                 </NavLink>
               </li>
               <li>

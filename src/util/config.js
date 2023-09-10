@@ -1,26 +1,26 @@
 import axios from 'axios';
-import {history} from '../index'
+import { history } from '../index'
 export const configs = {
-    setStore: (name,values)=>{
-        localStorage.setItem(name,values);
+    setStore: (name, values) => {
+        localStorage.setItem(name, values);
     },
     getStore: (name) => {
         return localStorage.getItem(name);
     },
-    setStoreJSON: (name,values)=>{
+    setStoreJSON: (name, values) => {
         //Biến thành chuỗi
         values = JSON.stringify(values);
         //Lưu vào store
-        localStorage.setItem(name,values);
+        localStorage.setItem(name, values);
     },
-    getStoreJSON: (name) =>{
-        if(localStorage.getItem(name)) {
+    getStoreJSON: (name) => {
+        if (localStorage.getItem(name)) {
             let content = JSON.parse(localStorage.getItem(name));
             return content;
         }
         return null;
     },
-    setCookie : ( value , days,name ) => {
+    setCookie: (value, days, name) => {
         var expires = "";
         if (days) {
             var date = new Date();
@@ -29,7 +29,7 @@ export const configs = {
         }
         document.cookie = name + "=" + (value || "") + expires + "; path=/";
     },
-    getCookie : (name) => {
+    getCookie: (name) => {
         var nameEQ = name + "=";
         var ca = document.cookie.split(';');
         for (var i = 0; i < ca.length; i++) {
@@ -39,34 +39,43 @@ export const configs = {
         }
         return null;
     },
-    clearCookie: (name)=>{
-        setCookie('',-1,name);
+    clearCookie: (name) => {
+        setCookie('', -1, name);
     },
-    clearLocalStorage : (name)=> {
+    clearLocalStorage: (name) => {
         localStorage.removeItem(name);
     },
+    sl: (arr, select) => {
+
+        let total = 0;
+        for (const key in arr) {
+            total += arr[key][select];
+        }
+        return total;
+    },
+
     ACCESS_TOKEN: 'accessToken',
-    USER_LOGIN:'userLogin'
+    USER_LOGIN: 'userLogin'
 }
 
-export const {ACCESS_TOKEN,USER_LOGIN,getCookie,setCookie,getStore,setStore,getStoreJSON,setStoreJSON,clearCookie,clearLocalStorage} = configs;
+export const { sl, ACCESS_TOKEN, USER_LOGIN, getCookie, setCookie, getStore, setStore, getStoreJSON, setStoreJSON, clearCookie, clearLocalStorage } = configs;
 
 
 //Cấu hình interceptor (Cấu hình cho các request và response)
 
 export const http = axios.create({
-    baseURL:`https://shop.cyberlearn.vn/api`,
+    baseURL: `https://shop.cyberlearn.vn/api`,
     timeout: 6000
 });
 
 //Cấu hình request 
 
-http.interceptors.request.use((configs)=> {
+http.interceptors.request.use((configs) => {
     //Cấu hình tất cả header add thêm thuộc tính Authorization
     configs.headers = {
         ...configs.headers,
         ['Authorization']: `Bearer ${getStore(ACCESS_TOKEN)}`,
-        
+
     }
 
     return configs;
@@ -94,11 +103,11 @@ http.interceptors.response.use((response) => {
 }, err => {
     // const originalRequest = error.config;
     console.log(err.response.status);
-    if(err.response.status === 400 || err.response.status === 404) {
+    if (err.response.status === 400 || err.response.status === 404) {
         history.push('/');
-        return  Promise.reject(err);
+        return Promise.reject(err);
     }
-    if(err.response.status === 401 || err.response.status === 403) {
+    if (err.response.status === 401 || err.response.status === 403) {
         alert('Token không hợp lệ ! Vui lòng đăng nhập lại !');
         history.push('/login');
         return Promise.reject(err)

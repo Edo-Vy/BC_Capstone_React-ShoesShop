@@ -3,9 +3,11 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import Product from "../../components/Product/Product";
+import { addToCartAction } from "../../redux/reducers/cartReducer";
 import { getApiProDetailAction } from "../../redux/reducers/productReducer";
 
 export default function Detail(props) {
+
   const { proDetail } = useSelector((state) => state.productReducer);
   //changenumber
   const [Number, setNumber] = useState(1);
@@ -17,14 +19,18 @@ export default function Detail(props) {
     dispatch(action);
   }, [params.id]);
   // changeQuatity
-  const handleChangeQuantity = (changeNuber) => {
-    if (Number < 2 && changeNuber === -1) {
-      alert("Số lượng tối thiểu là 1");
+  const handleChangeQuantity = (number) => {
+    if (Number < 1 && number === -1) {
+     return alert("Số lượng tối thiểu là 1");
     }
-    setNumber(Number + changeNuber);
+    setNumber(Number + number);
   };
   const handleChangeCart = () => {
-    
+    const action = addToCartAction({...proDetail, Number});
+    dispatch(action);
+   
+    console.log("kết quả", dispatch(addToCartAction({...proDetail, Number})));
+    console.log('Number', Number);
   };
   return (
     <div>
