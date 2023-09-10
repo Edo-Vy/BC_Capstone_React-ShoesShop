@@ -9,22 +9,22 @@ export default function Cart() {
         <table className="cart__table">
           <thead className="thead">
             <tr>
-              <th>
-                <input type={"checkbox"} className="checkbox" id="check" />
+              <th className="t__check">
+                <input type={"checkbox"} className="checkbox" id="check" name="check" />
               </th>
               <th>Id</th>
               <th>IMG</th>
               <th>Name</th>
               <th>Price</th>
-              <th>Quantity</th>
-              <th>ToTal</th>
+              <th className="th__quantity">Quantity</th>
+              <th className="th__total">ToTal</th>
               <th>Action</th>
             </tr>
           </thead>
           <tbody className="tbody">
             <tr>
               <td className="cart__check">
-                <input type={"checkbox"} className=" checkbox" id="check" />
+                <input type={"checkbox"} className=" checkbox" id="check" name="check" />
               </td>
               <td className="cart__id">01</td>
               <td className="cart__img">
@@ -47,7 +47,7 @@ export default function Cart() {
 
           <tfoot className="tfoot">
             <tr>
-              <td>
+              <td colSpan={8}>
                 <button className="btn__subOrder">SUBMIT ORDER</button>
               </td>
             </tr>

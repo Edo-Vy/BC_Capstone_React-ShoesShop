@@ -1,5 +1,5 @@
 //rfc
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import Product from "../../components/Product/Product";
@@ -7,6 +7,8 @@ import { getApiProDetailAction } from "../../redux/reducers/productReducer";
 
 export default function Detail(props) {
   const { proDetail } = useSelector((state) => state.productReducer);
+  //changenumber
+  const [Number, setNumber] = useState(1);
   const params = useParams();
   const dispatch = useDispatch();
 
@@ -14,6 +16,16 @@ export default function Detail(props) {
     const action = getApiProDetailAction(params.id);
     dispatch(action);
   }, [params.id]);
+  // changeQuatity
+  const handleChangeQuantity = (changeNuber) => {
+    if (Number < 2 && changeNuber === -1) {
+      alert("Số lượng tối thiểu là 1");
+    }
+    setNumber(Number + changeNuber);
+  };
+  const handleChangeCart = () => {
+    
+  };
   return (
     <div>
       <div className="card__detail">
@@ -30,26 +42,35 @@ export default function Detail(props) {
           <div className="button__size">
             {proDetail?.size?.map((size, index) => {
               return (
-               
-                  <span className="btn__size" key={index}>
-                    {size}
-                  </span>
-               
+                <span className="btn__size" key={index}>
+                  {size}
+                </span>
               );
             })}
-            {/* <button className="btn__size">38</button>
-            <button className="btn__size">38</button>
-            <button className="btn__size">38</button>
-            <button className="btn__size">38</button>
-            <button className="btn__size">38</button> */}
           </div>
           <p className="card__price">{proDetail.price}$</p>
           <div className="count__prod">
-            <button className="count__down">-</button>
-            <p className="count__total">1</p>
-            <button className="count__plus">+</button>
+            <button
+              className="count__down"
+              onClick={() => {
+                handleChangeQuantity(-1);
+              }}
+            >
+              -
+            </button>
+            <p className="count__total">{Number}</p>
+            <button
+              className="count__plus"
+              onClick={() => {
+                handleChangeQuantity(1);
+              }}
+            >
+              +
+            </button>
           </div>
-          <button className="btn__cart">Add to cart</button>
+          <button className="btn__cart" onClick={handleChangeCart}>
+            Add to cart
+          </button>
         </div>
       </div>
 
