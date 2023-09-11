@@ -34,7 +34,7 @@ export default function Header() {
                 </NavLink>
               </li>
               <li>
-                <NavLink className="header__login p-3" to="/">
+                <NavLink className="header__login p-3" to="/login">
                   Login
                 </NavLink>
               </li>

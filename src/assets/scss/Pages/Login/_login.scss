@@ -1,0 +1,117 @@
+.login {
+  height: 568px;
+  position: relative;
+  .login__title {
+    height: 48px;
+    position: relative;
+    left: 110px;
+    top: 20px;
+    h3 {
+      @include text($fs6, $fw4, $c-primary-dark, $lh4);
+      &:before {
+        position: absolute;
+        content: "";
+        left: 0;
+        top: 68px;
+        width: 100%;
+        border: 1px solid $bg-c4-secondary;
+      }
+    }
+  }
+  .login__form {
+    position: absolute;
+    height: 490px;
+    top: 165px;
+    left: 438px;
+    width: 500px;
+    .form__wrap {
+      margin-bottom: 30px;
+      .email__form {
+        margin-bottom: 30px;
+        p {
+          height: 24px;
+          @include text($fs3, $fw5, $c-primary-dark, $lh1);
+        }
+        .email {
+          width: 443px;
+          height: 54px;
+          @include text($fs2, $fw4, $c-primary-dark, $lh1);
+          background-color: $bg-c13-secondary;
+          border: none;
+          &:focus {
+            // outline: none;
+            box-shadow: none;
+          }
+        }
+      }
+      .password__form {
+        margin-bottom: 30px;
+        p {
+          height: 24px;
+          @include text($fs3, $fw5, $c-primary-dark, $lh1);
+        }
+        .password {
+          width: 443px;
+          height: 54px;
+          @include text($fs2, $fw4, $c-primary-dark, $lh1);
+          background-color: $bg-c13-secondary;
+          border: none;
+          &:focus {
+            // outline: none;
+            box-shadow: none;
+          }
+        }
+      }
+      .login__sub {
+        height: 55px;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        margin-bottom: 20px;
+        .login__register {
+          .nav__regis {
+            @include text($fs3, $fw5, $c-c18-secondary, $lh1);
+          }
+        }
+        .button__login {
+          .btn__login {
+            @include text($fs2, $fw5, $c-primary-light, $lh2);
+            padding: 10px 30px;
+            border: none;
+            border-radius: 20px;
+            background-color: $bg-c11-secondary;
+            box-shadow: 0px 4px 5px 0px #00000024;
+          }
+        }
+      }
+      .login__facebook {
+        width: 443px;
+        height: 65px;
+        margin-bottom: 20px;
+        .btn__facebook {
+          width: 442px;
+          height: 63px;
+          border: none;
+          display: flex;
+          background-color: $bg-c14-secondary;
+          align-items: center;
+          border-radius: 15px;
+
+          .fa-facebook-f {
+            height: 45px;
+            width: 45px;
+            margin: 0 40px;
+            background-color: $bg-c1-secondary;
+            color: $c-c19-secondary;
+            border-radius: 50%;
+            padding: 10px 8px 0px 8px;
+          }
+          .face__content {
+            @include text($fs2, $fw5, $c-primary-light, $lh2);
+            margin-top: 20px;
+          }
+        }
+      }
+    }
+  }
+}

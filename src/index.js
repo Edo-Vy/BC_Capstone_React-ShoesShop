@@ -14,6 +14,7 @@ import { store } from '../src/redux/configStore'
 // history
 import { createBrowserHistory } from 'history';
 import { unstable_HistoryRouter as HistoryRouter } from 'react-router-dom';
+import Login from './pages/Login/Login';
 
 export const history = createBrowserHistory();
 
@@ -30,6 +31,7 @@ root.render(
             <Route path=':id' element={<Detail/>}></Route>
           </Route>
           <Route path='cart' element={<Cart/>}></Route>
+          <Route path='login' element={<Login/>}></Route>
         </Route>
       </Routes>
 
