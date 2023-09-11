@@ -5,9 +5,42 @@ import { NavLink } from "react-router-dom";
 import { sl } from "../../util/config";
 
 export default function Header() {
-
-  const {listCartTemp} = useSelector(state => state.cartReducer);
+  const { listCartTemp } = useSelector((state) => state.cartReducer);
   const dispatch = useDispatch();
+  const { userLogin } = useSelector((state) => state.userReducer);
+
+  const renderLogin = () => {
+    if (userLogin) {
+      return (
+        <>
+          <li>
+            <NavLink className="header__login p-3" to="/profile">
+              Hello! {userLogin.email}
+            </NavLink>
+          </li>
+          <li>
+            <NavLink className="header__login p-3" to="/">
+              Đăng Xuất
+            </NavLink>
+          </li>
+        </>
+      );
+    }
+    return (
+      <>
+        <li>
+          <NavLink className="header__login p-3" to="/login">
+            Login
+          </NavLink>
+        </li>
+        <li>
+          <NavLink className="header__register p-3" to="/">
+            Register
+          </NavLink>
+        </li>
+      </>
+    );
+  };
   return (
     <>
       <div className="header__main">
@@ -30,19 +63,10 @@ export default function Header() {
                     style={{ cursor: "pointer" }}
                     alt="cart"
                   />
-                  <span>({sl(listCartTemp,"Number")})</span>
+                  <span>({sl(listCartTemp, "Number")})</span>
                 </NavLink>
               </li>
-              <li>
-                <NavLink className="header__login p-3" to="/login">
-                  Login
-                </NavLink>
-              </li>
-              <li>
-                <NavLink className="header__register p-3" to="/">
-                  Register
-                </NavLink>
-              </li>
+              {renderLogin()}
             </ul>
           </div>
         </div>

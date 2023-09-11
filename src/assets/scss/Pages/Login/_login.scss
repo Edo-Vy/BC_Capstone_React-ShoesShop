@@ -43,6 +43,11 @@
             box-shadow: none;
           }
         }
+        .text__warning{
+          margin-top: 5px;
+          @include text($fs2, $fw4, $c-c13-secondary, $lh1);
+
+        }
       }
       .password__form {
         margin-bottom: 30px;
@@ -61,6 +66,11 @@
             box-shadow: none;
           }
         }
+        .text__warning{
+          margin-top: 5px;
+          @include text($fs2, $fw4, $c-c13-secondary, $lh1);
+
+        }
       }
       .login__sub {
         height: 55px;
@@ -70,6 +80,7 @@
         margin-bottom: 20px;
         .login__register {
           .nav__regis {
+            cursor: pointer;
             @include text($fs3, $fw5, $c-c18-secondary, $lh1);
           }
         }
