@@ -14,7 +14,27 @@
     height: $height;
 }
 
-@mixin  button (){
+@mixin form__title ($h, $fs, $fw, $c, $lh){
+   height: $h;
+   font : {
+       size: $fs;
+       weight : $fw
+   }
+   color: $c;
+   line-height: $lh;
+}
+@mixin form__input ($h, $w, $fs, $fw, $c, $lh, $bg-c,$bd) {
+
+    width: $w;
+    height: $h;
+    font : {
+        size: $fs;
+        weight : $fw
+    }
+    color: $c;
+    line-height: $lh;
+    background-color:$bg-c;
+    border: $bd;
     
 }
 

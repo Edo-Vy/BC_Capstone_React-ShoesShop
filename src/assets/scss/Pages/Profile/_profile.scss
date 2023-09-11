@@ -1,0 +1,272 @@
+.profile {
+  height: 1262px;
+  position: relative;
+  .profile__wrap {
+    position: absolute;
+    top: 47px;
+    .prof__main {
+      .prof__title {
+        height: 74px;
+        width: 575px;
+        h3 {
+          @include text($fs6, $fw4, $c-primary-light, $lh4);
+          background: linear-gradient(180deg, #f21299 0%, #1b02b5 100%);
+          padding: 10px 10px 10px 47px;
+        }
+      }
+      .prof__info {
+        .info__wrap {
+          display: flex;
+          position: relative;
+          left: 34px;
+          top: 20px;
+          .info__avatar {
+            position: absolute;
+            width: 225px;
+            height: 225px;
+            padding: 20px;
+            background-color: $bg-c1-secondary;
+            margin-right: 20px;
+            img {
+              width: 100%;
+              height: 100%;
+              border-radius: 50%;
+            }
+          }
+          .info__form {
+            .form__wrap {
+              .form__left {
+                position: absolute;
+                left: 287px;
+                .emai__form {
+                  margin-bottom: 20px;
+                  .email__title {
+                    @include form__title(
+                      15px,
+                      $fs3,
+                      $fw5,
+                      $c-primary-dark,
+                      $lh1
+                    );
+                  }
+                  .email {
+                    @include form__input(
+                      54px,
+                      443px,
+                      $fs2,
+                      $fw4,
+                      $c-primary-dark,
+                      $lh1,
+                      $bg-c13-secondary,
+                      none
+                    );
+                    &:focus {
+                      // outline: none;
+                      box-shadow: none;
+                    }
+                  }
+                  .text__warning {
+                    margin-top: 5px;
+                    @include text($fs2, $fw4, $c-c13-secondary, $lh1);
+                  }
+                }
+                .phone__form {
+                  .phone__title {
+                    @include form__title(
+                      15px,
+                      $fs3,
+                      $fw5,
+                      $c-primary-dark,
+                      $lh1
+                    );
+                  }
+                  .phone {
+                    @include form__input(
+                      54px,
+                      443px,
+                      $fs2,
+                      $fw4,
+                      $c-primary-dark,
+                      $lh1,
+                      $bg-c13-secondary,
+                      none
+                    );
+                    &:focus {
+                      // outline: none;
+                      box-shadow: none;
+                    }
+                  }
+                }
+              }
+              .form__right {
+                position: absolute;
+                left: 823px;
+                .name__form {
+                  margin-bottom: 20px;
+                  .name__title {
+                    @include form__title(
+                      15px,
+                      $fs3,
+                      $fw5,
+                      $c-primary-dark,
+                      $lh1
+                    );
+                  }
+                  .name {
+                    @include form__input(
+                      54px,
+                      443px,
+                      $fs2,
+                      $fw4,
+                      $c-primary-dark,
+                      $lh1,
+                      $bg-c13-secondary,
+                      none
+                    );
+                    &:focus {
+                      // outline: none;
+                      box-shadow: none;
+                    }
+                  }
+                }
+                .password__form {
+                  margin-bottom: 20px;
+                  .password__title {
+                    @include form__title(
+                      15px,
+                      $fs3,
+                      $fw5,
+                      $c-primary-dark,
+                      $lh1
+                    );
+                  }
+                  .password {
+                    @include form__input(
+                      54px,
+                      443px,
+                      $fs2,
+                      $fw4,
+                      $c-primary-dark,
+                      $lh1,
+                      $bg-c13-secondary,
+                      none
+                    );
+                    &:focus {
+                      // outline: none;
+                      box-shadow: none;
+                    }
+                  }
+                }
+                .form__check {
+                  display: flex;
+                  height: 80px;
+                  .gender__form {
+                    display: flex;
+                    width: 65%;
+                    .gender__title {
+                      @include text($fs3, $fw5, $c-primary-dark, $lh4);
+                      margin-right: 50px;
+                    }
+                    .gender__check {
+                      display: flex;
+                      .gender__male {
+                        padding-top: 10px;
+                        margin-right: 30px;
+                        .male__check {
+                          width: 25px;
+                          height: 24px;
+                          margin-bottom: 15px;
+                        }
+                        .male__title {
+                          @include text($fs2, $fw4, $c-primary-dark, $lh4);
+                        }
+                      }
+                      .gender__female {
+                        padding-top: 10px;
+
+                        .female__check {
+                          width: 25px;
+                          height: 24px;
+                          margin-bottom: 15px;
+                        }
+                        .female__title {
+                          @include text($fs2, $fw4, $c-primary-dark, $lh4);
+                        }
+                      }
+                    }
+                  }
+                  .button__up {
+                    margin-top: 50px;
+                    margin-left: 30px;
+                    .btn__update {
+                      width: 121px;
+                      height: 48px;
+                      border: none;
+                      @include text($fs3, $fw4, $c-primary-light, $lh4);
+                      background-color: $bg-c11-secondary;
+                      border-radius: 20px;
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    .prof__pro {
+      position: relative;
+      top: 350px;
+      left: 54px;
+      width: 1280px;
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        border: 1px solid $bg-c2-secondary;
+      }
+      .prof__pro__main {
+        display: flex;
+
+        .prof__history {
+          .button__history {
+            .btn__history {
+              height: 62px;
+              width: 277px;
+              border: 1px solid $bg-c2-secondary;
+              @include text($fs5, $fw4, $c-primary-dark, $lh3);
+              background-color: $bg-c10-secondary;
+              box-shadow: 0px 4px 5px 0px #00000024;
+              transition: 0.3s all linear;
+              &:hover {
+                @include text($fs5, $fw4, $c-c16-secondary, $lh3);
+              }
+            }
+          }
+          .table__history {
+          }
+        }
+        .prof__favo {
+          .button__favo {
+            .btn__favo {
+              height: 62px;
+              width: 277px;
+              border: 1px solid $bg-c2-secondary;
+              @include text($fs5, $fw4, $c-primary-dark, $lh3);
+              background-color: $bg-c10-secondary;
+              box-shadow: 0px 4px 5px 0px #00000024;
+              transition: 0.3s all linear;
+              &:hover {
+                @include text($fs5, $fw4, $c-c16-secondary, $lh3);
+              }
+            }
+          }
+          .table__favo {
+          }
+        }
+      }
+    }
+  }
+}

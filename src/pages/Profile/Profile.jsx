@@ -22,7 +22,7 @@ export default function Profile() {
           <div className="prof__info">
             <div className="info__wrap">
               <div className="info__avatar">
-                <img src="http://i.pravatar.cc?=9" alt="" />
+                <img src={userLogin?.avatar} alt="" />
               </div>
               <div className="info__form">
                 <form className="form__wrap">
@@ -31,9 +31,10 @@ export default function Profile() {
                       <p className="email__title">Email</p>
                       <input
                         className="form-control email"
-                        placeholder="email"
+                        placeholder= "email"
                         id="email"
                         name="email"
+                        defaultValue={userLogin?.email}
                       />
                     </div>
                     <div className="phone__form from-group">
@@ -43,6 +44,7 @@ export default function Profile() {
                         placeholder="phone"
                         id="phone"
                         name="phone"
+                        defaultValue={userLogin?.phone}
                       />
                     </div>
                   </div>
@@ -55,6 +57,7 @@ export default function Profile() {
                         placeholder="name"
                         id="name"
                         name="name"
+                        defaultValue={userLogin?.name}
                       />
                     </div>
                     <div className="password__form from-group">
@@ -64,6 +67,7 @@ export default function Profile() {
                         placeholder="password"
                         id="password"
                         name="password"
+                        defaultValue={userLogin?.password}
                       />
                     </div>
                     <div className="form__check">
@@ -108,7 +112,39 @@ export default function Profile() {
               <div className="button__history">
                 <button className="btn__history">Order History</button>
               </div>
-              <div className="table__history"></div>
+              <div className="table__history">
+                <table className="table__wrap">
+                  <thead className="tb__head">
+                    <tr>
+                      <th className="t__check"></th>
+                      <th>Id</th>
+                      <th>IMG</th>
+                      <th>Name</th>
+                      <th>Price</th>
+                      <th className="th__quantity">Quantity</th>
+                      <th className="th__total">ToTal</th>
+                    </tr>
+                  </thead>
+                  <tbody className="tbody">
+                    <tr>
+                      <td className="cart__check"></td>
+                      <td className="cart__id">id</td>
+                      <td className="cart__img">
+                        <img src="http://i.pravatar.cc?=9" alt="" />
+                      </td>
+                      <td className="cart__name">name</td>
+                      <td className="cart__price">price $</td>
+                      <td className="cart__quantity">
+                        <button className="btn__down">-</button>
+                        <span className="count__total">Number</span>
+                        <button className="btn__plus">+</button>
+                      </td>
+                      <td className="cart__total">prod.price prod.Number</td>
+                      <td className="cart__action"></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
             </div>
             <div className="prof__favo">
               <div className="button__favo">
