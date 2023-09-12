@@ -7,15 +7,15 @@ import HomeTemplate from './templates/HomeTemplate/HomeTemplate';
 import Home from './pages/Home/Home';
 import Detail from './pages/Detail/Detail.jsx';
 import Cart from './pages/Cart/Cart';
-
+import Login from './pages/Login/Login';
+import Profile  from './pages/Profile/Profile';
 // Redux
 import { Provider } from 'react-redux';
 import { store } from '../src/redux/configStore'
 // history
 import { createBrowserHistory } from 'history';
 import { unstable_HistoryRouter as HistoryRouter } from 'react-router-dom';
-import Login from './pages/Login/Login';
-import Profile  from './pages/Profile/Profile';
+
 export const history = createBrowserHistory();
 
 

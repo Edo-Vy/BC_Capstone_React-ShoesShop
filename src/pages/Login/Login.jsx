@@ -72,7 +72,7 @@ export default function Login() {
               <h3 className="nav__regis">Register now?</h3>
             </div>
             <div className="button__login">
-              <button className="btn__login">Login</button>
+              <button className="btn__login" type="submit">Login</button>
             </div>
           </div>
           <div className="login__facebook">

@@ -10,7 +10,7 @@ export default function Detail(props) {
 
   const { proDetail } = useSelector((state) => state.productReducer);
   //changenumber
-  const [Number, setNumber] = useState(1);
+  const [useNumber, setUseNumber] = useState(1);
   const params = useParams();
   const dispatch = useDispatch();
 
@@ -20,17 +20,19 @@ export default function Detail(props) {
   }, [params.id]);
   // changeQuatity
   const handleChangeQuantity = (number) => {
-    if (Number < 1 && number === -1) {
+    if (useNumber < 2 && number === -1) {
      return alert("Số lượng tối thiểu là 1");
     }
-    setNumber(Number + number);
+
+    setUseNumber(useNumber + number);
   };
   const handleChangeCart = () => {
-    const action = addToCartAction({...proDetail, Number});
+    const action = addToCartAction({...proDetail, useNumber});
     dispatch(action);
    
-    console.log("kết quả", dispatch(addToCartAction({...proDetail, Number})));
-    console.log('Number', Number);
+    // console.log("kết quả", action);
+    // console.log('Number', useNumber);
+  
   };
   return (
     <div>
@@ -64,7 +66,7 @@ export default function Detail(props) {
             >
               -
             </button>
-            <p className="count__total">{Number}</p>
+            <p className="count__total">{useNumber}</p>
             <button
               className="count__plus"
               onClick={() => {

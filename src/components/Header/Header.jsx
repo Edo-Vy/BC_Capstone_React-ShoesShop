@@ -2,11 +2,11 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
-import { sl } from "../../util/config";
+import { ACCESS_TOKEN, clearCookie, clearLocalStorage, sl, USER_LOGIN } from "../../util/config";
 
 export default function Header() {
   const { listCartTemp } = useSelector((state) => state.cartReducer);
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
   const { userLogin } = useSelector((state) => state.userReducer);
 
   const renderLogin = () => {
@@ -14,12 +14,18 @@ export default function Header() {
       return (
         <>
           <li>
-            <NavLink className="header__login p-3" to="/profile">
+            <NavLink className="nav-link header__login p-3 active" to="/profile">
               Hello! {userLogin.email}
             </NavLink>
           </li>
           <li>
-            <NavLink className="header__login p-3" to="/">
+            <NavLink className="header__login p-3" to="/" style={{cursor:"pointer"}} onClick={()=>{
+              clearLocalStorage(USER_LOGIN);
+              clearLocalStorage(ACCESS_TOKEN);
+              clearCookie(USER_LOGIN);
+              clearCookie(ACCESS_TOKEN);
+              window.location.href = "/"; // clear redux
+            }}>
               Đăng Xuất
             </NavLink>
           </li>
@@ -59,11 +65,13 @@ export default function Header() {
               <li>
                 <NavLink className="header__carts p-3" to="/cart">
                   <img
-                    src="./img/cart.png"
+                    src="../img/cart.png"
                     style={{ cursor: "pointer" }}
                     alt="cart"
                   />
-                  <span>({sl(listCartTemp, "Number")})</span>
+                  <span>({sl(listCartTemp, "useNumber")}
+                  
+                  )</span>
                 </NavLink>
               </li>
               {renderLogin()}

@@ -31,7 +31,7 @@ export const { setUserLoginAction } = userReducer.actions;
 export default userReducer.reducer;
 
 //------------- action (thunk) ------------
-
+// Login
 export const signinApi = (userLogin) => {
   // {email:"" , password :""}
 
@@ -51,14 +51,18 @@ export const signinApi = (userLogin) => {
       // result.data.content = {email:"", accessToken:""}
       const action = setUserLoginAction(result.data.content);
       dispatch(action);
+      // Sau khi verify tài khoản thành công, lưu vào localStorage -> đúng -> chuyển hướng
+      history.push("/profile");
     } catch (erro) {
+      alert("Tài khoản - Mật khẩu không đúng!");
+      history.push("/login");
       console.log(erro);
     }
   };
 };
 
 //---- api getProfile
-
+// Get-Profile
 export const getProfileApi = () => {
   return async (dispatch) => {
     try {
@@ -68,6 +72,7 @@ export const getProfileApi = () => {
       // Tạo ra actioncaretor => dispatch lên redux
       const action = setUserLoginAction(result.data.content);
       dispatch(action);
+      
     } catch (erro) {
         //Token không hợp lệ
         alert("Đăng nhập để vào trang này!");

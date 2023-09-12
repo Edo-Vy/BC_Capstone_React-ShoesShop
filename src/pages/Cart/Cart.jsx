@@ -78,7 +78,7 @@ export default function Cart() {
                     <button
                       className="btn__down"
                       onClick={() => {
-                        if (prod.Number <= 1) {
+                        if (prod.useNumber <= 1) {
                           if (
                             window.confirm(
                               `Bạn có muốn xóa sản phẩm ${prod.name}`
@@ -93,7 +93,7 @@ export default function Cart() {
                     >
                       -
                     </button>
-                    <span className="count__total">{prod.Number}</span>
+                    <span className="count__total">{prod.useNumber}</span>
                     <button
                       className="btn__plus"
                       onClick={() => {
@@ -103,7 +103,7 @@ export default function Cart() {
                       +
                     </button>
                   </td>
-                  <td className="cart__total">{prod.price * prod.Number}</td>
+                  <td className="cart__total">{prod.price * prod.useNumber}</td>
                   <td className="cart__action">
                     <button className="btn__edit">EDIT</button>
                     <button className="btn__del" onClick={()=>{
