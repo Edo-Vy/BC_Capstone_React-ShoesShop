@@ -3,12 +3,18 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   changeQuantityAction,
+  checkAllItem,
+  checkItem,
+  getApiOrderAction,
   handleDeleteAction,
 } from "../../redux/reducers/cartReducer";
 
 export default function Cart() {
   const { listCartTemp } = useSelector((state) => state.cartReducer);
+
   console.log("list", listCartTemp);
+
+  const { userLogin } = useSelector((state) => state.userReducer);
   const dispatch = useDispatch();
 
   // changeQuantity
@@ -21,16 +27,53 @@ export default function Cart() {
     const action = handleDeleteAction(id);
     dispatch(action);
   };
-  // findCheckAll
+  // findCheck tất cả
   const findIfCheckAll = () => {
     let result = true;
     for (let value of listCartTemp) {
-      if (!value.checked == false) result &= false;
+      if (!value.checked) result &= false;
     }
     return result;
   };
   // handleCheckAll
-  const handleCheckAll = ({ target: { checked } }) => {};
+  const handleCheckAll = ({ target: { checked } }) => {
+    const action = checkAllItem(checked);
+    dispatch(action);
+  };
+  // handleCheckItem
+  const handleCheckItem = (id) => {
+    const action = checkItem(id);
+    dispatch(action);
+    console.log("acioncheck", action);
+  };
+  // submit Order
+  const handleSubOrder = () => {
+    let order = {
+      orderDetail: [],
+      email: userLogin.email,
+    };
+    let deleteProd = [];
+    for (let value of listCartTemp) {
+      if (value.checked) {
+        let prod = {
+          prodId: value.id,
+          prodQuantity: value.quantity,
+        };
+
+        order.orderDetail = [...order.orderDetail, prod];
+        deleteProd = [...deleteProd, value.id];
+      }
+    }
+    if (order.orderDetail.length !== 0) {
+      const action = getApiOrderAction(order);
+      dispatch(action);
+      for (let value of deleteProd) {
+        handleDelItemCart(value);
+      }
+    } else {
+      alert("Chọn sản phẩm trước khi đặt hàng!");
+    }
+  };
 
   return (
     <div className="cart">
@@ -41,10 +84,12 @@ export default function Cart() {
             <tr>
               <th className="t__check">
                 <input
-                  type={"checkbox"}
+                  type="checkbox"
                   className="checkbox"
                   id="check"
                   name="check"
+                  checked={findIfCheckAll()}
+                  onChange={(e) => handleCheckAll(e)}
                 />
               </th>
               <th>Id</th>
@@ -62,10 +107,12 @@ export default function Cart() {
                 <tr key={index}>
                   <td className="cart__check">
                     <input
-                      type={"checkbox"}
+                      type="checkbox"
                       className=" checkbox"
                       id="check"
                       name="check"
+                      onChange={(e) => handleCheckItem(prod.id)}
+                      checked={prod.checked ? true : false}
                     />
                   </td>
                   <td className="cart__id">{prod.id}</td>
@@ -106,11 +153,20 @@ export default function Cart() {
                   <td className="cart__total">{prod.price * prod.useNumber}</td>
                   <td className="cart__action">
                     <button className="btn__edit">EDIT</button>
-                    <button className="btn__del" onClick={()=>{
-                      if(window.confirm(`Bạn có muốn xóa sản phẩm ${prod.name}`)){
-                        handleDelItemCart(prod.id);
-                      }
-                    }}>DELETE</button>
+                    <button
+                      className="btn__del"
+                      onClick={() => {
+                        if (
+                          window.confirm(
+                            `Bạn có muốn xóa sản phẩm ${prod.name}`
+                          )
+                        ) {
+                          handleDelItemCart(prod.id);
+                        }
+                      }}
+                    >
+                      DELETE
+                    </button>
                   </td>
                 </tr>
               );
@@ -120,7 +176,9 @@ export default function Cart() {
           <tfoot className="tfoot">
             <tr>
               <td colSpan={8}>
-                <button className="btn__subOrder">SUBMIT ORDER</button>
+                <button className="btn__subOrder" onClick={handleSubOrder}>
+                  SUBMIT ORDER
+                </button>
               </td>
             </tr>
           </tfoot>

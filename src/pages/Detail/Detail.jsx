@@ -5,6 +5,9 @@ import { useParams } from "react-router-dom";
 import Product from "../../components/Product/Product";
 import { addToCartAction } from "../../redux/reducers/cartReducer";
 import { getApiProDetailAction } from "../../redux/reducers/productReducer";
+import { getProfileApi } from "../../redux/reducers/userReducer";
+import { ACCESS_TOKEN } from "../../util/config";
+import Cart from "../Cart/Cart";
 
 export default function Detail(props) {
 
@@ -13,7 +16,7 @@ export default function Detail(props) {
   const [useNumber, setUseNumber] = useState(1);
   const params = useParams();
   const dispatch = useDispatch();
-
+ 
   useEffect(() => {
     const action = getApiProDetailAction(params.id);
     dispatch(action);
