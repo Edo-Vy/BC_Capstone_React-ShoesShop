@@ -1,12 +1,24 @@
 //rfc
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { NavLink } from "react-router-dom";
+import { date } from "yup";
 import { getProfileApi } from "../../redux/reducers/userReducer";
+import OrderHistory from "./OrderHistory/OrderHistory";
 
 export default function Profile() {
   // Lấy thông tin userLogin
   const { userLogin } = useSelector((state) => state.userReducer);
   const dispatch = useDispatch();
+
+  //show
+  const [isShown, setIsShown] = useState(false);
+
+  const handleClick = (e) => {
+    setIsShown((current) => !current);
+    //  or simply set it to true
+    // setIsShown(true);
+  };
 
   useEffect(() => {
     const action = getProfileApi();
@@ -31,7 +43,7 @@ export default function Profile() {
                       <p className="email__title">Email</p>
                       <input
                         className="form-control email"
-                        placeholder= "email"
+                        placeholder="email"
                         id="email"
                         name="email"
                         defaultValue={userLogin?.email}
@@ -80,6 +92,7 @@ export default function Profile() {
                               type="radio"
                               name="male"
                               id="male"
+                              defaultChecked={userLogin?.gender}
                             />
                             <p className="male__title">Male</p>
                           </div>
@@ -89,6 +102,7 @@ export default function Profile() {
                               type="radio"
                               name="female"
                               id="female"
+                              defaultChecked={userLogin?.gender}
                             />
                             <p className="female__title">Female</p>
                           </div>
@@ -110,41 +124,25 @@ export default function Profile() {
           <div className="prof__pro__main">
             <div className="prof__history">
               <div className="button__history">
-                <button className="btn__history">Order History</button>
+                <button className="btn__history" onClick={handleClick}>
+                  Order History
+                </button>
+                {isShown && (
+                  <div className="table__history">
+                    {userLogin?.ordersHistory?.map((order, index) => {
+                      return (
+                        <div className="table__order-history" key={index}>
+
+                          <OrderHistory order={order} />
+                        </div>
+                      );
+                    })}
+                  </div>
+                  
+                )}
+                
               </div>
-              <div className="table__history">
-                <table className="table__wrap">
-                  <thead className="tb__head">
-                    <tr>
-                      <th className="t__check"></th>
-                      <th>Id</th>
-                      <th>IMG</th>
-                      <th>Name</th>
-                      <th>Price</th>
-                      <th className="th__quantity">Quantity</th>
-                      <th className="th__total">ToTal</th>
-                    </tr>
-                  </thead>
-                  <tbody className="tbody">
-                    <tr>
-                      <td className="cart__check"></td>
-                      <td className="cart__id">id</td>
-                      <td className="cart__img">
-                        <img src="http://i.pravatar.cc?=9" alt="" />
-                      </td>
-                      <td className="cart__name">name</td>
-                      <td className="cart__price">price $</td>
-                      <td className="cart__quantity">
-                        <button className="btn__down">-</button>
-                        <span className="count__total">Number</span>
-                        <button className="btn__plus">+</button>
-                      </td>
-                      <td className="cart__total">prod.price prod.Number</td>
-                      <td className="cart__action"></td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
+              <div></div>
             </div>
             <div className="prof__favo">
               <div className="button__favo">

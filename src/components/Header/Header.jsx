@@ -40,7 +40,7 @@ export default function Header() {
           </NavLink>
         </li>
         <li>
-          <NavLink className="header__register p-3" to="/">
+          <NavLink className="header__register p-3" to="/register">
             Register
           </NavLink>
         </li>
@@ -57,7 +57,7 @@ export default function Header() {
           <div className="header__content">
             <ul className="d-flex">
               <li>
-                <NavLink className="header__search p-3" to="/">
+                <NavLink className="header__search p-3" to="/search">
                   <i className="fa fa-search"></i>
                   Search
                 </NavLink>

@@ -1,0 +1,236 @@
+.register {
+  position: relative;
+  left: 112px;
+  top: 30px;
+  height: 800px;
+  .main__wrap {
+    position: absolute;
+    .res__title {
+      height: 48px;
+      width: 156px;
+      .title {
+        position: relative;
+        @include text($fs6, $fw4, $c-primary-dark, $lh4);
+        width: 1090px;
+        &::before {
+          position: absolute;
+          content: "";
+          width: 100%;
+          left: 0;
+          top: 90px;
+          height: 3px;
+          background-color: $bg-c4-secondary;
+        }
+      }
+    }
+    .res__form {
+        position: absolute;
+        top: 90px;
+        left: 0;
+      .form__wrap {
+          margin-top: 50px;
+          width: 1090px;
+          display: flex;
+          justify-content: space-between;
+          
+        .form__left {
+            width: 450px;
+            margin-right: 50px;
+          .emai__form {
+            margin-bottom: 20px;
+            .email__title {
+                @include form__title(
+                    15px,
+                    $fs3,
+                    $fw5,
+                    $c-primary-dark,
+                    $lh1
+                  );
+            }
+            .email {
+                @include form__input(
+                      54px,
+                      443px,
+                      $fs2,
+                      $fw4,
+                      $c-primary-dark,
+                      $lh1,
+                      $bg-c13-secondary,
+                      none
+                    );
+                    &:focus {
+                      // outline: none;
+                      box-shadow: none;
+                    }
+            }
+            .text__warning {
+                margin-top: 5px;
+                @include text($fs2, $fw4, $c-c13-secondary, $lh1);
+              }
+          }
+          .pass__form {
+              margin-bottom: 20px;
+            .pass__title {
+                @include form__title(
+                    15px,
+                    $fs3,
+                    $fw5,
+                    $c-primary-dark,
+                    $lh1
+                  );
+            }
+            .password {
+                @include form__input(
+                    54px,
+                    443px,
+                    $fs2,
+                    $fw4,
+                    $c-primary-dark,
+                    $lh1,
+                    $bg-c13-secondary,
+                    none
+                  );
+                  &:focus {
+                    // outline: none;
+                    box-shadow: none;
+                  }
+            }
+          }
+          .passconf__form {
+            .passconf__title {
+                @include form__title(
+                    15px,
+                    $fs3,
+                    $fw5,
+                    $c-primary-dark,
+                    $lh1
+                  );
+            }
+            .passconf {
+                @include form__input(
+                    54px,
+                    443px,
+                    $fs2,
+                    $fw4,
+                    $c-primary-dark,
+                    $lh1,
+                    $bg-c13-secondary,
+                    none
+                  );
+                  &:focus {
+                    // outline: none;
+                    box-shadow: none;
+                  }
+            }
+          }
+        }
+        .form__right {
+            width: 450px;
+          .name__form {
+              margin-bottom: 20px;
+            .name__title {
+                @include form__title(
+                    15px,
+                    $fs3,
+                    $fw5,
+                    $c-primary-dark,
+                    $lh1
+                  );
+            }
+            .name {
+                @include form__input(
+                    54px,
+                    443px,
+                    $fs2,
+                    $fw4,
+                    $c-primary-dark,
+                    $lh1,
+                    $bg-c13-secondary,
+                    none
+                  );
+                  &:focus {
+                    // outline: none;
+                    box-shadow: none;
+                  }
+            }
+          }
+          .phone__form {
+              margin-bottom: 20px;
+            .phone__title {
+                @include form__title(
+                    15px,
+                    $fs3,
+                    $fw5,
+                    $c-primary-dark,
+                    $lh1
+                  );
+            }
+            .phone {
+                @include form__input(
+                    54px,
+                    443px,
+                    $fs2,
+                    $fw4,
+                    $c-primary-dark,
+                    $lh1,
+                    $bg-c13-secondary,
+                    none
+                  );
+                  &:focus {
+                    // outline: none;
+                    box-shadow: none;
+                  }
+            }
+          }
+          .gender__form {
+              margin-bottom: 20px;
+              display: flex;
+            .gender__title {
+                width: 80px;
+                margin-right: 30px;
+                @include text($fs3, $fw5, $c-primary-dark, $lh4);
+            }
+            .gender__check {
+                display: flex;
+              .male__check {
+                padding-top: 10px;
+                margin-right: 40px;
+                .male__raddio {
+                    width: 25px;
+                    height: 24px;
+                    margin-bottom: 15px;
+                }
+                .male__title {
+                    @include text($fs2, $fw4, $c-primary-dark, $lh4);
+                }
+              }
+              .female__check {
+                padding-top: 10px;
+                margin-right: 30px;
+                .female__raddio {
+                    width: 25px;
+                    height: 24px;
+                    margin-bottom: 15px;
+                }
+                .female__title {
+                    @include text($fs2, $fw4, $c-primary-dark, $lh4);
+                }
+              }
+            }
+          }
+          .button__submit {
+            margin-top: 50px;
+            .btn__submit {
+                width: 121px;
+                height: 48px;
+                border: none;
+                @include text($fs3, $fw4, $c-primary-light, $lh4);
+                background-color: $bg-c11-secondary;
+                border-radius: 20px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
