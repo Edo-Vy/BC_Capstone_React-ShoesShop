@@ -24,196 +24,129 @@
       }
     }
     .res__form {
-        position: absolute;
-        top: 90px;
-        left: 0;
+      position: absolute;
+      top: 90px;
+      left: 0;
       .form__wrap {
-          margin-top: 50px;
-          width: 1090px;
-          display: flex;
-          justify-content: space-between;
-          
+        margin-top: 50px;
+        width: 1090px;
+        display: flex;
+        justify-content: space-between;
+
         .form__left {
-            width: 450px;
-            margin-right: 50px;
+          width: 450px;
+          margin-right: 50px;
           .emai__form {
             margin-bottom: 20px;
             .email__title {
-                @include form__title(
-                    15px,
-                    $fs3,
-                    $fw5,
-                    $c-primary-dark,
-                    $lh1
-                  );
+              @extend .form__title;
             }
             .email {
-                @include form__input(
-                      54px,
-                      443px,
-                      $fs2,
-                      $fw4,
-                      $c-primary-dark,
-                      $lh1,
-                      $bg-c13-secondary,
-                      none
-                    );
-                    &:focus {
-                      // outline: none;
-                      box-shadow: none;
-                    }
+              @extend .input__form;
             }
             .text__warning {
-                margin-top: 5px;
-                @include text($fs2, $fw4, $c-c13-secondary, $lh1);
-              }
+              @extend .text__warning;
+            }
           }
           .pass__form {
-              margin-bottom: 20px;
+            margin-bottom: 20px;
             .pass__title {
-                @include form__title(
-                    15px,
-                    $fs3,
-                    $fw5,
-                    $c-primary-dark,
-                    $lh1
-                  );
+              @extend .form__title;
             }
-            .password {
-                @include form__input(
-                    54px,
-                    443px,
-                    $fs2,
-                    $fw4,
-                    $c-primary-dark,
-                    $lh1,
-                    $bg-c13-secondary,
-                    none
-                  );
-                  &:focus {
-                    // outline: none;
-                    box-shadow: none;
-                  }
+            .pass__input {
+              display: flex;
+              position: relative;
+              .password {
+                @extend .input__form;
+              }
+              .show__icon {
+                position: absolute;
+                top: 13px;
+                right: 30px;
+                font-size: 20px;
+                cursor: pointer;
+              }
             }
           }
           .passconf__form {
             .passconf__title {
-                @include form__title(
-                    15px,
-                    $fs3,
-                    $fw5,
-                    $c-primary-dark,
-                    $lh1
-                  );
+              @extend .form__title;
             }
-            .passconf {
-                @include form__input(
-                    54px,
-                    443px,
-                    $fs2,
-                    $fw4,
-                    $c-primary-dark,
-                    $lh1,
-                    $bg-c13-secondary,
-                    none
-                  );
-                  &:focus {
-                    // outline: none;
-                    box-shadow: none;
-                  }
+            .pass__input {
+              display: flex;
+              position: relative;
+              .passconf {
+                @extend .input__form;
+              }
+              .show__icon {
+                position: absolute;
+                top: 13px;
+                right: 30px;
+                font-size: 20px;
+                cursor: pointer;
+              }
             }
           }
         }
         .form__right {
-            width: 450px;
+          width: 450px;
           .name__form {
-              margin-bottom: 20px;
+            margin-bottom: 20px;
             .name__title {
-                @include form__title(
-                    15px,
-                    $fs3,
-                    $fw5,
-                    $c-primary-dark,
-                    $lh1
-                  );
+              @extend .form__title;
             }
             .name {
-                @include form__input(
-                    54px,
-                    443px,
-                    $fs2,
-                    $fw4,
-                    $c-primary-dark,
-                    $lh1,
-                    $bg-c13-secondary,
-                    none
-                  );
-                  &:focus {
-                    // outline: none;
-                    box-shadow: none;
-                  }
+              @extend .input__form;
             }
           }
           .phone__form {
-              margin-bottom: 20px;
+            margin-bottom: 20px;
             .phone__title {
-                @include form__title(
-                    15px,
-                    $fs3,
-                    $fw5,
-                    $c-primary-dark,
-                    $lh1
-                  );
+              @extend .form__title;
             }
             .phone {
-                @include form__input(
-                    54px,
-                    443px,
-                    $fs2,
-                    $fw4,
-                    $c-primary-dark,
-                    $lh1,
-                    $bg-c13-secondary,
-                    none
-                  );
-                  &:focus {
-                    // outline: none;
-                    box-shadow: none;
-                  }
+              @extend .input__form;
             }
           }
           .gender__form {
-              margin-bottom: 20px;
-              display: flex;
+            margin-bottom: 20px;
+            display: flex;
             .gender__title {
-                width: 80px;
-                margin-right: 30px;
-                @include text($fs3, $fw5, $c-primary-dark, $lh4);
+              width: 80px;
+              margin-right: 30px;
+              @include text($fs3, $fw5, $c-primary-dark, $lh4);
             }
             .gender__check {
-                display: flex;
+              display: flex;
               .male__check {
                 padding-top: 10px;
                 margin-right: 40px;
+
                 .male__raddio {
-                    width: 25px;
-                    height: 24px;
-                    margin-bottom: 15px;
+                  width: 25px;
+                  height: 24px;
+                  margin-bottom: 15px;
+                  display: block;
                 }
                 .male__title {
-                    @include text($fs2, $fw4, $c-primary-dark, $lh4);
+                  cursor: pointer;
+
+                  @include text($fs2, $fw4, $c-primary-dark, $lh4);
                 }
               }
               .female__check {
                 padding-top: 10px;
                 margin-right: 30px;
                 .female__raddio {
-                    width: 25px;
-                    height: 24px;
-                    margin-bottom: 15px;
+                  width: 25px;
+                  height: 24px;
+                  margin-bottom: 15px;
+                  display: block;
                 }
                 .female__title {
-                    @include text($fs2, $fw4, $c-primary-dark, $lh4);
+                  cursor: pointer;
+
+                  @include text($fs2, $fw4, $c-primary-dark, $lh4);
                 }
               }
             }
@@ -221,12 +154,12 @@
           .button__submit {
             margin-top: 50px;
             .btn__submit {
-                width: 121px;
-                height: 48px;
-                border: none;
-                @include text($fs3, $fw4, $c-primary-light, $lh4);
-                background-color: $bg-c11-secondary;
-                border-radius: 20px;
+              width: 121px;
+              height: 48px;
+              border: none;
+              @include text($fs3, $fw4, $c-primary-light, $lh4);
+              background-color: $bg-c11-secondary;
+              border-radius: 20px;
             }
           }
         }

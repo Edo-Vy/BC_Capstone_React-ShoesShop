@@ -114,13 +114,31 @@ export const getApiOrderAction = (order) => {
       alert('Đã đặt hàng thành công!');
       const action = submitOrderAction(order);
       dispatch(action);
-
-      const action_api = getProfileApi();
+      // kiểm tra
+      const action_api = getProfileApi;
       dispatch(action_api); 
 
       // đã đăng nhập
     } catch (erro) {
       console.log('erro',erro);
+      alert('Vui lòng đăng nhập');
+      history.push("/login");
     }
   };
 };
+//---- login
+export const getUserLogin = () =>{
+  return async dispatch =>{
+    
+    try{
+      if(!getStoreJSON(USER_LOGIN)){
+        alert("Vui lòng đăng nhập để vào trang này!");
+        history.push('/login');
+      }
+      return null;
+
+    } catch(erro){
+      console.log(erro);
+    }
+  }
+}

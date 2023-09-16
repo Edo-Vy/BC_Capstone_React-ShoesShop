@@ -11,7 +11,7 @@ export default function Profile() {
   const { userLogin } = useSelector((state) => state.userReducer);
   const dispatch = useDispatch();
 
-  //show
+  //show checck
   const [isShown, setIsShown] = useState(false);
 
   const handleClick = (e) => {
@@ -90,21 +90,23 @@ export default function Profile() {
                             <input
                               className="male__check"
                               type="radio"
-                              name="male"
-                              id="male"
+                              name="gender"
+                              id="radio-male"
+                              value={true}
                               defaultChecked={userLogin?.gender}
                             />
-                            <p className="male__title">Male</p>
+                            <label className="male__title" htmlFor="radio-male">Male</label>
                           </div>
                           <div className="gender__female">
                             <input
                               className="female__check"
                               type="radio"
-                              name="female"
-                              id="female"
+                              name="gender"
+                              id="radio-female"
                               defaultChecked={userLogin?.gender}
+                              value={false}
                             />
-                            <p className="female__title">Female</p>
+                            <label className="female__title" htmlFor="radio-female">Female</label>
                           </div>
                         </div>
                       </div>

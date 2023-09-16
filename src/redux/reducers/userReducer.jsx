@@ -12,6 +12,13 @@ import {
 const initialState = {
   //   userLogin: {},
   userLogin: getStoreJSON(USER_LOGIN),
+  newUser: {
+    email: "",
+    password: "",
+    name: "",
+    gender: "",
+    phone: "",
+  },
 };
 
 const userReducer = createSlice({
@@ -23,10 +30,14 @@ const userReducer = createSlice({
       let userLogins = action.payload;
       state.userLogin = userLogins;
     },
+    setNewUserAction: (state, action) => {
+      let userNew = action.payload;
+      state.newUser = userNew;
+    },
   },
 });
 
-export const { setUserLoginAction } = userReducer.actions;
+export const { setUserLoginAction, setNewUserAction } = userReducer.actions;
 
 export default userReducer.reducer;
 
@@ -62,22 +73,42 @@ export const signinApi = (userLogin) => {
 };
 
 //---- api getProfile
-// Get-Profile
+
 export const getProfileApi = () => {
   return async (dispatch) => {
     try {
       let result = await http.post("/Users/getProfile");
-      // Thành công 
-      console.log('kq',result.data.content);
+      // Thành công
+      console.log("kq", result.data.content);
       // Tạo ra actioncaretor => dispatch lên redux
       const action = setUserLoginAction(result.data.content);
       dispatch(action);
-      
     } catch (erro) {
-        //Token không hợp lệ
-        alert("Đăng nhập để vào trang này!");
-        // Về trang Login
-        history.push("/login");
+      //Token không hợp lệ
+      alert("Đăng nhập để vào trang này!");
+      // Về trang Login
+      history.push("/login");
+      console.log(erro);
+    }
+  };
+};
+
+// signup new user
+
+export const getNewUserSignUp = (infoUser) => {
+  // {email:'',...}
+
+  return async (dispatch) => {
+    try {
+      const result = await http.post("/Users/signup", infoUser);
+      console.log("result", result.data.content);
+
+      const action = setNewUserAction(result.data.content);
+      dispatch(action);
+      
+      alert("Đăng ký thành công!");
+      history.push('/login');
+    } catch (erro) {
       console.log(erro);
     }
   };

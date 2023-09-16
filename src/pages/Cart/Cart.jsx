@@ -6,8 +6,10 @@ import {
   checkAllItem,
   checkItem,
   getApiOrderAction,
+  getUserLogin,
   handleDeleteAction,
 } from "../../redux/reducers/cartReducer";
+import { getProfileApi } from "../../redux/reducers/userReducer";
 
 export default function Cart() {
   const { listCartTemp } = useSelector((state) => state.cartReducer);
@@ -74,6 +76,11 @@ export default function Cart() {
       alert("Chọn sản phẩm trước khi đặt hàng!");
     }
   };
+
+  useEffect(()=>{
+    const action = getUserLogin();
+    dispatch(action);
+  },[])
 
   return (
     <div className="cart">
