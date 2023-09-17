@@ -45,6 +45,7 @@ export default function Register() {
     },
   });
   // handleChangeIcon
+ 
   const toggle = () => {
     setPasswordShown(!passwordShown);
   };
@@ -83,6 +84,8 @@ export default function Register() {
                     onChange={formik.handleChange}
                     onBlur={formik.handleBlur}
                     type={passwordShown ? "text" : "password"}
+                    autoComplete="true"
+                    required={true}
                   />
                   <span className="show__icon" onClick={toggle}>
                     {passwordShown ? (
@@ -107,6 +110,8 @@ export default function Register() {
                     className="passconf form-control"
                     placeholder="password confirm"
                     name="passconfirm"
+                    autoComplete="true"
+                    required={true}
                     type={passwordShown ? "text" : "password"}
                     onChange={formik.handleChange}
                     onBlur={formik.handleBlur}

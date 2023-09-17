@@ -11,7 +11,7 @@ export default function Search() {
                 <p className='search__title'>Search</p>
                 <input className='search__form form-control' placeholder='Search Product' name='search'/>
             </div>
-            <div className='main__right'>
+            <div className='main__left'>
               <button className='btn__search'>Search</button>
             </div>
           </form>
@@ -23,21 +23,28 @@ export default function Search() {
               <h3 className='title'>Search result</h3>
             </div>
             <div className='body__option'>
-              <div className='body__search'>
-                <form className='form__body'>
-                  <div className='form__option form-group'>
-                    <p className='price__title'>Price</p>
-                    <select className='option'>
-                      <option>Tăng</option>
-                      <option>Giảm</option>
-                    </select>
-                  </div>
-                </form>
+              <div className='search__price '>
+                <div className='price__decrease'>
+                  <button className='btn__decrease'>decrease</button>
+                </div>
+                <div className='price__ascending'>
+                  <button className='btn__ascending'>ascending</button>
+                </div>
+              </div>
+              <div className='option__branchs'>
+                <p className='branch__title'>Branchs</p>
+                <select className='select__branchs'>
+                  <option>Adidas</option>
+                  <option>Vans</option>
+                  <option>Nike</option>
+                </select>
               </div>
             </div>
             {/* === */}
             <div className='search__product'>
-              
+              <div className='row'>
+                <div>Call api</div>
+              </div>
             </div>
           </div>
         </div>

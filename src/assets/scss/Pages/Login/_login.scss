@@ -1,5 +1,5 @@
 .login {
-  height: 568px;
+  height: 668px;
   position: relative;
   .login__title {
     height: 48px;
@@ -43,10 +43,9 @@
             box-shadow: none;
           }
         }
-        .text__warning{
+        .text__warning {
           margin-top: 5px;
           @include text($fs2, $fw4, $c-c13-secondary, $lh1);
-
         }
       }
       .password__form {
@@ -55,21 +54,26 @@
           height: 24px;
           @include text($fs3, $fw5, $c-primary-dark, $lh1);
         }
-        .password {
-          width: 443px;
-          height: 54px;
-          @include text($fs2, $fw4, $c-primary-dark, $lh1);
-          background-color: $bg-c13-secondary;
-          border: none;
-          &:focus {
-            // outline: none;
-            box-shadow: none;
+        .pass__input {
+          display: flex;
+          position: relative;
+          .password {
+            @extend .input__form;
+          }
+          .show__eye {
+            position: absolute;
+            top: 13px;
+            right: 80px;
+            font-size: 20px;
+            cursor: pointer;
+            .fas{
+
+            }
           }
         }
-        .text__warning{
+        .text__warning {
           margin-top: 5px;
           @include text($fs2, $fw4, $c-c13-secondary, $lh1);
-
         }
       }
       .login__sub {

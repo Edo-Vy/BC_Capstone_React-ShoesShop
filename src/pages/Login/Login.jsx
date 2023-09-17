@@ -1,10 +1,14 @@
 //rfc
-import React from "react";
+import React, { useState } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { signinApi } from "../../redux/reducers/userReducer";
 import { useDispatch } from "react-redux";
+import { NavLink } from "react-router-dom";
+
 export default function Login() {
+  // show-hide pass
+  const [passwordShown, setPasswordShown] = useState(false);
 
   const dispatch = useDispatch();
   const formik = useFormik({
@@ -27,6 +31,14 @@ export default function Login() {
       dispatch(action);
     },
   });
+
+  // handleChangeIcon
+  
+   const toggle = () => {
+    setPasswordShown(!passwordShown);
+    
+  };
+
   return (
     <div className="login">
       <div className="login__title">
@@ -53,14 +65,19 @@ export default function Login() {
           </div>
           <div className="password__form form-group">
             <p>Password</p>
-            <input
-              className="password form-control"
-              placeholder="password"
-              id="password"
-              name="password"
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
-            />
+            <div className="pass__input">
+              <input
+                className="password form-control"
+                placeholder="password"
+                name="password"
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
+                type={passwordShown ? "text" : "password"} autoComplete="true"  required={true}
+              />
+              <span className="show__eye" onClick={toggle}  >
+                {passwordShown ? <i className="fa fa-eye"></i> : <i className="fa fa-eye-slash"></i> }
+              </span>
+            </div>
             {formik.errors.password ? (
               <p className="text__warning">{formik.errors.password}</p>
             ) : (
@@ -69,10 +86,14 @@ export default function Login() {
           </div>
           <div className="login__sub">
             <div className="login__register">
-              <h3 className="nav__regis">Register now?</h3>
+              <NavLink className="nav__regis" to="/register">
+                Register now?
+              </NavLink>
             </div>
             <div className="button__login">
-              <button className="btn__login" type="submit">Login</button>
+              <button className="btn__login" type="submit">
+                Login
+              </button>
             </div>
           </div>
           <div className="login__facebook">
