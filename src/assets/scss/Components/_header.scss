@@ -1,28 +1,36 @@
 .header__main {
-  background-color: $bg-c8-secondary;
+  background-color: rgb(183 164 97 / 87%);
   height: 68px;
+  position: fixed;
+  width: 100%;
+  z-index: 5;
   .container-fluid {
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 0 20px;
+    height: 100%;
     .header__logo {
-      height: 60px;
-      width: 125px;
-      padding: 15px 0;
+      width: 150px;
+      height: 50px;
       margin-left: 20px;
       img {
         width: 100%;
       }
     }
     .header__content {
-      height: 40px;
-
+      height: 55px;
+      text-align: center;
       ul {
-        padding: 10px;
+        padding: 10px 0px;
+        height: 100%;
         li {
           .header__search {
-            @include text($fs5, $fw3, $c-primary-light, $lh1);
+            @include text($fs5, $fw4, $c-primary-light, $lh1);
+            transition: 0.5s all linear;
+            &:hover{
+              color: $c-c19-secondary !important;
+            }
           }
         }
         li {
@@ -33,21 +41,62 @@
             width: 75px;
             img {
               width: 100%;
+              transform: scale3d(1.2, 1.2, 1.2);
+              transition: 0.3s all linear;
+              &:hover{
+                transform: scale3d(1.5, 1.5, 1.5);
+              }
+              
             }
             span {
               padding-left: 10px;
-              @include text($fs3, $fw3, $c-primary-light, $lh1);
+              @include text($fs3, $fw4, $c-primary-light, $lh1);
+              transition: 0.5s all linear;
+              &:hover{
+                color: $c-c19-secondary !important;
+              }
+            }
+          }
+        }
+        .login__header {
+          padding-top: 5px;
+          .header__login {
+            @include text($fs4, $fw4, $c-primary-light, $lh1);
+            transition: 0.5s all linear;
+            &:hover{
+              color: $c-c19-secondary !important;
             }
           }
         }
         li {
-          .header__login {
-            @include text($fs3, $fw3, $c-primary-light, $lh1);
+          padding-top: 5px;
+          .header__logout {
+            @include text($fs4, $fw4, $c-primary-light, $lh1);
+            transition: 0.5s all linear;
+            &:hover{
+              color: $c-c19-secondary !important;
+            }
           }
         }
         li {
+          padding-top: 5px;
+          .header__user {
+            @include text($fs4, $fw4, $c-primary-light, $lh1);
+            transition: 0.5s all linear;
+            &:hover{
+              color: $c-c19-secondary !important;
+            }
+          }
+        }
+        .reg {
+          padding-top: 5px;
           .header__register {
-            @include text($fs3, $fw3, $c-primary-light, $lh1);
+            @include text($fs4, $fw4, $c-primary-light, $lh1);
+            transition: 0.5s all linear;
+
+            &:hover{
+              color: $c-c19-secondary !important;
+            }
           }
         }
       }
@@ -57,6 +106,10 @@
 
 .header__menu {
   height: 65px;
+  position: absolute;
+  top: 60px;
+  z-index: 5;
+  margin-top: 15px;
   .container-fluid {
     .navbar {
       .menu__wrap {

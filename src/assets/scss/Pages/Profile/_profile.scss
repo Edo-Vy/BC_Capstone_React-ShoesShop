@@ -1,6 +1,8 @@
 .profile {
   height: 1262px;
   position: relative;
+  top: 115px;
+  overflow: hidden;
   .profile__wrap {
     position: absolute;
     top: 47px;
@@ -246,13 +248,13 @@
             }
           }
           .table__history {
-            height: 600px;
+            height: 510px;
             width: 1280px;
             position: absolute;
             top: 99px;
             left: 51px;
             overflow: hidden;
-            .table__order-history{
+            .table__order-history {
               padding-right: 80px;
               .ord__date {
                 @include text($fs2, $fw4, $c-c16-secondary, $lh1);
@@ -273,12 +275,10 @@
                 }
                 .tb__body {
                   text-align: center;
-              
+
                   tr {
-                   
                     .ord__id {
                       @include text($fs3, $fw4, $c-primary-dark, $lh1);
-                     
                     }
                     .ord__img {
                       width: 85px;
@@ -303,8 +303,7 @@
                 }
               }
             }
-            }
-       
+          }
         }
         .prof__favo {
           .button__favo {

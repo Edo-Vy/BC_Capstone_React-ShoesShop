@@ -1,6 +1,6 @@
 // rfc
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 import { ACCESS_TOKEN, clearCookie, clearLocalStorage, sl, USER_LOGIN } from "../../util/config";
 
@@ -14,19 +14,19 @@ export default function Header() {
       return (
         <>
           <li>
-            <NavLink className="nav-link header__login p-3 active" to="/profile">
-              Hello! {userLogin.email}
+            <NavLink className="nav-link header__user px-3 active" to="/profile">
+              Hello! {userLogin.name}
             </NavLink>
           </li>
           <li>
-            <NavLink className="header__login p-3" to="/" style={{cursor:"pointer"}} onClick={()=>{
+            <NavLink className="header__logout" to="/" style={{cursor:"pointer"}} onClick={()=>{
               clearLocalStorage(USER_LOGIN);
               clearLocalStorage(ACCESS_TOKEN);
               clearCookie(USER_LOGIN);
               clearCookie(ACCESS_TOKEN);
               window.location.href = "/"; // clear redux
             }}>
-              Đăng Xuất
+              Log Out
             </NavLink>
           </li>
         </>
@@ -34,12 +34,12 @@ export default function Header() {
     }
     return (
       <>
-        <li>
+        <li className="login__header">
           <NavLink className="header__login p-3" to="/login">
             Login
           </NavLink>
         </li>
-        <li>
+        <li className="reg">
           <NavLink className="header__register p-3" to="/register">
             Register
           </NavLink>

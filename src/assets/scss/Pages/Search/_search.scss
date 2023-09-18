@@ -1,13 +1,14 @@
 .search {
   position: relative;
-  height: 800px;
+  height: 998px;
+  top: 115px;
   .main__wrap {
     .search__header {
       .main__search {
         position: relative;
         display: flex;
         height: 120px;
-        top: 20px;
+        top: 0px;
         left: 44px;
         align-items: center;
         .main__right {
@@ -37,7 +38,7 @@
     }
     .search__result {
       position: relative;
-      top: 55px;
+      top: 20px;
       left: 2px;
 
       .body__wrap {
@@ -53,7 +54,7 @@
         }
         .body__option {
           position: absolute;
-          top: 125px;
+          top: 90px;
           left: 98px;
           height: 200px;
           .search__price {
@@ -67,6 +68,9 @@
                 margin-bottom: 13px;
                 text-align: left;
                 padding-left: 30px;
+                .fa{
+                  margin-left: 290px;
+                }
               }
               .btn__ascending {
                 @extend .input__form;
@@ -74,6 +78,9 @@
                 margin-bottom: 13px;
                 text-align: left;
                 padding-left: 30px;
+                .fa{
+                  margin-left: 280px;
+                }
               }
             }
           }
@@ -97,6 +104,14 @@
              
             }
           }
+        }
+        .search__product{
+          position: absolute;
+          height: 420px;
+          top: 280px;
+          left: 80px;
+          overflow: hidden;
+         margin-bottom: 10px;
         }
       }
     }
