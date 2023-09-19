@@ -1,10 +1,12 @@
 //rfc
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import { signinApi } from "../../redux/reducers/userReducer";
+import { loginFacebookApi, signinApi } from "../../redux/reducers/userReducer";
 import { useDispatch } from "react-redux";
 import { NavLink } from "react-router-dom";
+// facebook
+import FaceBookLogin from "react-facebook-login";
 
 export default function Login() {
   // show-hide pass
@@ -33,11 +35,21 @@ export default function Login() {
   });
 
   // handleChangeIcon
-  
-   const toggle = () => {
+
+  const toggle = () => {
     setPasswordShown(!passwordShown);
-    
   };
+
+  
+  //face
+  const responseFacebook = (res) => {
+    console.log("res?.accessToken", res?.accessToken);
+    if (res?.accessToken) {
+      const action = loginFacebookApi({ facebookToken: res?.accessToken });
+      dispatch(action);
+    }
+  };
+  //
 
   return (
     <div className="login">
@@ -72,10 +84,16 @@ export default function Login() {
                 name="password"
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
-                type={passwordShown ? "text" : "password"} autoComplete="true"  required={true}
+                type={passwordShown ? "text" : "password"}
+                autoComplete="true"
+                required={true}
               />
-              <span className="show__eye" onClick={toggle}  >
-                {passwordShown ? <i className="fa fa-eye"></i> : <i className="fa fa-eye-slash"></i> }
+              <span className="show__eye" onClick={toggle}>
+                {passwordShown ? (
+                  <i className="fa fa-eye"></i>
+                ) : (
+                  <i className="fa fa-eye-slash"></i>
+                )}
               </span>
             </div>
             {formik.errors.password ? (
@@ -97,10 +115,19 @@ export default function Login() {
             </div>
           </div>
           <div className="login__facebook">
-            <button className="btn__facebook">
+            {/* <button className="btn__facebook">
               <i className="fab fa-facebook-f"></i>
               <p className="face__content">Continue with Facebook</p>
-            </button>
+            </button> */}
+            <FaceBookLogin
+              appId="838667367927957"
+              autoLoad={true}
+              fields="name,email,picture"
+              // onClick={componentClicked}
+              callback={responseFacebook}
+              cssClass="btn__facebook"
+              icon="fab fa-facebook-f"
+            />
           </div>
         </form>
       </div>

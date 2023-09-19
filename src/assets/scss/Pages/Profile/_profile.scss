@@ -320,7 +320,51 @@
               }
             }
           }
-          .table__favo {
+          .table__favou {
+            height: 510px;
+            width: 1280px;
+            position: absolute;
+            top: 99px;
+            left: 0;
+            overflow: hidden;
+            .table__order-favou {
+              padding-right: 80px;
+
+              .table__wrap {
+                width: 100%;
+                .tb__head {
+                  background-color: $bg-c10-secondary;
+                  height: 58px;
+                  width: 200px;
+                  tr {
+                    th {
+                      @include text($fs3, $fw4, $c-primary-dark, $lh1);
+                      text-align: center;
+                      padding-left: 30px;
+                    }
+                  }
+                }
+                .tb__body {
+                  text-align: center;
+
+                  tr {
+                    .ord__id {
+                      @include text($fs3, $fw4, $c-primary-dark, $lh1);
+                    }
+                    .ord__img {
+                      width: 85px;
+                      height: 56px;
+                      img {
+                        width: 100%;
+                      }
+                    }
+                    .ord__name {
+                      @include text($fs3, $fw4, $c-primary-dark, $lh1);
+                    }
+                  }
+                }
+              }
+            }
           }
         }
       }

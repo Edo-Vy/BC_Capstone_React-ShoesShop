@@ -1,5 +1,5 @@
 .login {
-  height: 668px;
+  height: 800px;
   position: relative;
   top: 115px;
   .login__title {
@@ -120,7 +120,8 @@
             background-color: $bg-c1-secondary;
             color: $c-c19-secondary;
             border-radius: 50%;
-            padding: 10px 8px 0px 8px;
+            padding: 15px 8px 0px 8px;
+            font-size: 35px;
           }
           .face__content {
             @include text($fs2, $fw5, $c-primary-light, $lh2);

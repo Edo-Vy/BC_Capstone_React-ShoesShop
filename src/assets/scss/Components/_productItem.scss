@@ -28,9 +28,13 @@
       width: 45px;
       top: 0;
       right: 0;
-      .fa-heart {
-        font-size: 35px;
-        color: $c-c17-secondary;
+      .button__heart{
+        border: none;
+        background: transparent;
+        .fa-heart {
+          font-size: 35px;
+          color: $c-c17-secondary;
+        }
       }
     }
   }

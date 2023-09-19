@@ -19,6 +19,7 @@ const initialState = {
     gender: "",
     phone: "",
   },
+  arrProdFavorite: [],
 };
 
 const userReducer = createSlice({
@@ -34,10 +35,32 @@ const userReducer = createSlice({
       let userNew = action.payload;
       state.newUser = userNew;
     },
+    setProdFavoriteAction: (state, action) => {
+      state.arrProdFavorite = action.payload;
+    },
+    // setLikeFavAction : (state, action) =>{
+    //   let {arrProdFavorite} = state;
+    //   let {payload} = action;
+
+    //   // let index = arrProdFavorite.findIndex(item => item.id === payload.id);
+    //   arrProdFavorite = [...arrProdFavorite, payload];
+    //   state.arrProdFavorite = arrProdFavorite;
+
+    // },
+    // setUnLikeFavAction :(state, action) =>{
+    //   let itemFavDel = state.arrProdFavorite.filter(item => item.id !== action.payload);
+    //   state.arrProdFavorite = itemFavDel;
+    // }
   },
 });
 
-export const { setUserLoginAction, setNewUserAction } = userReducer.actions;
+export const {
+  setUserLoginAction,
+  setNewUserAction,
+  setProdFavoriteAction,
+  setLikeFavAction,
+  setUnLikeFavAction,
+} = userReducer.actions;
 
 export default userReducer.reducer;
 
@@ -105,11 +128,86 @@ export const getNewUserSignUp = (infoUser) => {
 
       const action = setNewUserAction(result.data.content);
       dispatch(action);
-      
+
       alert("Đăng ký thành công!");
-      history.push('/login');
+      history.push("/login");
     } catch (erro) {
       console.log(erro);
     }
   };
 };
+//dang nhap bang facebook
+export const loginFacebookApi = (fbToken) => {
+  try {
+    return async () => {
+      const result = await http.post("/Users/facebooklogin", fbToken);
+      console.log(result.data.content);
+      // alert('đăng nhập thành công')
+      window.location.reload();
+      history.push("/profile");
+      setStoreJSON(ACCESS_TOKEN, result.data.content);
+    };
+  } catch (error) {
+    console.log({ error });
+  }
+};
+
+// product favorite
+
+export const getProdFavoriteApi = () => {
+  return async (dispatch) => {
+    try {
+      let result = await http.get("/Users/getproductfavorite");
+
+      const action = setProdFavoriteAction(result.data.content);
+      dispatch(action);
+    } catch (erro) {
+      console.log(erro);
+    }
+  };
+};
+
+// like
+export const getProdLikeAction = (id) => {
+  try {
+    return async () => {
+      let result = await http.get(`/Users/like?productId=${id}`);
+      console.log("like", result.data.content);
+
+      // const action = setLikeFavAction(result.data.content);
+      // dispatch(action);
+    };
+  } catch (erro) {
+    console.log(erro);
+  }
+};
+// unlike
+export const getProdUnLikeAction = (id) => {
+  try {
+    return async () => {
+      let result = await http.get(`/Users/unlike?productId=${id}`);
+      console.log("unlike", result.data.content);
+
+      // const action = setUnLikeFavAction(result.data.content);
+      // dispatch(action);
+    };
+  } catch (erro) {
+    console.log(erro);
+  }
+};
+
+// xóa order
+
+export const deleleOrderApi = (id) =>{
+  try{
+    return async () =>{
+      let result = await http.post("/Users/deleteOrder",id)
+      console.log(result);
+      window.location.reload();
+    }
+  }catch(err){
+
+    console.log(err);
+
+  }
+}

@@ -1,27 +1,49 @@
 //rfc
+import { current } from "@reduxjs/toolkit";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 import { date } from "yup";
-import { getProfileApi } from "../../redux/reducers/userReducer";
+import {
+  getProdFavoriteApi,
+  getProfileApi,
+} from "../../redux/reducers/userReducer";
+import OrderFavourite from "./OrderFavourite/OrderFavourite";
 import OrderHistory from "./OrderHistory/OrderHistory";
 
 export default function Profile() {
   // Lấy thông tin userLogin
   const { userLogin } = useSelector((state) => state.userReducer);
+  const { arrProdFavorite } = useSelector((state) => state.userReducer);
   const dispatch = useDispatch();
 
   //show checck
   const [isShown, setIsShown] = useState(false);
+  const [isShownLike, setIsShownLike] = useState(false);
+
+
 
   const handleClick = (e) => {
     setIsShown((current) => !current);
+    setIsShownLike(false);
+    //  or simply set it to true
+    // setIsShown(true);
+  };
+
+  const handleClickLike = (e) => {
+    setIsShownLike((current) => !current);
+    setIsShown(false);
     //  or simply set it to true
     // setIsShown(true);
   };
 
   useEffect(() => {
     const action = getProfileApi();
+    dispatch(action);
+  }, []);
+
+  useEffect(() => {
+    const action = getProdFavoriteApi();
     dispatch(action);
   }, []);
   return (
@@ -95,7 +117,9 @@ export default function Profile() {
                               value={true}
                               defaultChecked={userLogin?.gender}
                             />
-                            <label className="male__title" htmlFor="radio-male">Male</label>
+                            <label className="male__title" htmlFor="radio-male">
+                              Male
+                            </label>
                           </div>
                           <div className="gender__female">
                             <input
@@ -103,10 +127,15 @@ export default function Profile() {
                               type="radio"
                               name="gender"
                               id="radio-female"
-                              defaultChecked={userLogin?.gender}
+                              defaultChecked={!userLogin?.gender}
                               value={false}
                             />
-                            <label className="female__title" htmlFor="radio-female">Female</label>
+                            <label
+                              className="female__title"
+                              htmlFor="radio-female"
+                            >
+                              Female
+                            </label>
                           </div>
                         </div>
                       </div>
@@ -134,23 +163,50 @@ export default function Profile() {
                     {userLogin?.ordersHistory?.map((order, index) => {
                       return (
                         <div className="table__order-history" key={index}>
-
                           <OrderHistory order={order} />
                         </div>
                       );
                     })}
                   </div>
-                  
                 )}
-                
               </div>
               <div></div>
             </div>
             <div className="prof__favo">
               <div className="button__favo">
-                <button className="btn__favo">Favourite</button>
+                <button className="btn__favo" onClick={handleClickLike}>
+                  Favourite
+                </button>
+                {isShownLike && (
+                  <div className="table__favou">
+                    <div className="table__order-favou">
+                      <table className="table__wrap">
+                        <thead className="tb__head">
+                          <tr>
+                            <th>Id</th>
+                            <th>IMG</th>
+                            <th>Name</th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                          </tr>
+                        </thead>
+                        <tbody className="tb__body">
+                          {arrProdFavorite?.productsFavorite?.map(
+                            (like, index) => {
+                              return (
+                                <tr key={index}>
+                                  <OrderFavourite order={like} />
+                                </tr>
+                              );
+                            }
+                          )}
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                )}
               </div>
-              <div className="table__favo"></div>
             </div>
           </div>
         </div>

@@ -9,7 +9,7 @@ import {
   getUserLogin,
   handleDeleteAction,
 } from "../../redux/reducers/cartReducer";
-import { getProfileApi } from "../../redux/reducers/userReducer";
+
 
 export default function Cart() {
   const { listCartTemp } = useSelector((state) => state.cartReducer);
