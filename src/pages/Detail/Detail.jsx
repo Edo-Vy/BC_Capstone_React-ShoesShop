@@ -5,15 +5,15 @@ import { useParams } from "react-router-dom";
 import Product from "../../components/Product/Product";
 import { addToCartAction } from "../../redux/reducers/cartReducer";
 import { getApiProDetailAction } from "../../redux/reducers/productReducer";
-import { getProfileApi } from "../../redux/reducers/userReducer";
-import { ACCESS_TOKEN } from "../../util/config";
-import Cart from "../Cart/Cart";
 
-export default function Detail(props) {
+
+export default function Detail() {
 
   const { proDetail } = useSelector((state) => state.productReducer);
   //changenumber
   const [useNumber, setUseNumber] = useState(1);
+  // changeSize
+  const [size, setSize] = useState("36");
   const params = useParams();
   const dispatch = useDispatch();
  
@@ -51,11 +51,13 @@ export default function Detail(props) {
           <p className="card__shortdes">{proDetail.shortDescription}</p>
           <h3>Available size</h3>
           <div className="button__size">
-            {proDetail?.size?.map((size, index) => {
+            {proDetail?.size?.map((sizeNum, index) => {
               return (
-                <span className="btn__size" key={index}>
-                  {size}
-                </span>
+                <button className={ ( size === sizeNum ?  "btn__size-active":  "btn__size" )} key={index} onClick={()=>{
+                  setSize(sizeNum)
+                }}>
+                  <span>{sizeNum}</span>
+                </button>
               );
             })}
           </div>

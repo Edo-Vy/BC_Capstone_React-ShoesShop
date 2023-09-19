@@ -38,19 +38,7 @@ const userReducer = createSlice({
     setProdFavoriteAction: (state, action) => {
       state.arrProdFavorite = action.payload;
     },
-    // setLikeFavAction : (state, action) =>{
-    //   let {arrProdFavorite} = state;
-    //   let {payload} = action;
-
-    //   // let index = arrProdFavorite.findIndex(item => item.id === payload.id);
-    //   arrProdFavorite = [...arrProdFavorite, payload];
-    //   state.arrProdFavorite = arrProdFavorite;
-
-    // },
-    // setUnLikeFavAction :(state, action) =>{
-    //   let itemFavDel = state.arrProdFavorite.filter(item => item.id !== action.payload);
-    //   state.arrProdFavorite = itemFavDel;
-    // }
+    
   },
 });
 
@@ -58,8 +46,7 @@ export const {
   setUserLoginAction,
   setNewUserAction,
   setProdFavoriteAction,
-  setLikeFavAction,
-  setUnLikeFavAction,
+  
 } = userReducer.actions;
 
 export default userReducer.reducer;
@@ -148,6 +135,7 @@ export const loginFacebookApi = (fbToken) => {
       setStoreJSON(ACCESS_TOKEN, result.data.content);
     };
   } catch (error) {
+    history.push('/login');
     console.log({ error });
   }
 };

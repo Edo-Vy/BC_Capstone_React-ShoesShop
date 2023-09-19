@@ -1,11 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { history } from "../..";
-import {
-  ACCESS_TOKEN,
-  getStoreJSON,
-  http,
-  USER_LOGIN,
-} from "../../util/config";
+import { getStoreJSON, http, USER_LOGIN } from "../../util/config";
 import { getProfileApi } from "./userReducer";
 
 const initialState = {
@@ -58,13 +53,16 @@ const cartReducer = createSlice({
       state.listCartTemp = itemCartDel;
     },
     submitOrderAction: (state, action) => {
-      let newListCart = [...state.listCartTemp];
-
-      action.payload.orderDetail.forEach((i, index) =>{
-        newListCart = newListCart.filter(item => item.id !== i.prodId)
-      })
-      console.log('newListCart',newListCart);
-      state.listCartTemp = newListCart;
+      let newListCarts = [...state.listCartTemp];
+      
+      action.payload.orderDetail.forEach((i, index) => {
+        newListCarts = newListCarts.filter(item => item.id !== i.prodId);
+        console.log("newListCart", newListCarts);
+      });
+      
+      state.listCartTemp = newListCarts;
+    
+      
     },
     checkAllItem: (state, action) => {
       let { listCartTemp } = state;
@@ -104,41 +102,40 @@ export const {
 
 export default cartReducer.reducer;
 
-
 //-------
 export const getApiOrderAction = (order) => {
   return async (dispatch) => {
     try {
       let result = await http.post("/Users/order", order);
-      console.log('Thành công',result);
-      alert('Đã đặt hàng thành công!');
+      console.log("Thành công", result);
+      alert("Đã đặt hàng thành công!");
       const action = submitOrderAction(order);
       dispatch(action);
+      console.log("submit", action);
       // kiểm tra
       const action_api = getProfileApi;
-      dispatch(action_api); 
+      dispatch(action_api);
+      console.log("api", action_api);
 
       // đã đăng nhập
     } catch (erro) {
-      console.log('erro',erro);
-      alert('Vui lòng đăng nhập');
+      console.log("erro", erro);
+      alert("Vui lòng đăng nhập");
       history.push("/login");
     }
   };
 };
 //---- login
-export const getUserLogin = () =>{
-  return async dispatch =>{
-    
-    try{
-      if(!getStoreJSON(USER_LOGIN)){
+export const getUserLogin = () => {
+  return async (dispatch) => {
+    try {
+      if (!getStoreJSON(USER_LOGIN)) {
         alert("Vui lòng đăng nhập để vào trang này!");
-        history.push('/login');
+        history.push("/login");
       }
       return null;
-
-    } catch(erro){
+    } catch (erro) {
       console.log(erro);
     }
-  }
-}
+  };
+};

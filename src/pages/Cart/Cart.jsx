@@ -76,6 +76,8 @@ export default function Cart() {
       alert("Chọn sản phẩm trước khi đặt hàng!");
     }
   };
+// 
+
 
   useEffect(()=>{
     const action = getUserLogin();
@@ -157,7 +159,7 @@ export default function Cart() {
                       +
                     </button>
                   </td>
-                  <td className="cart__total">{prod.price * prod.useNumber}</td>
+                  <td className="cart__total">{(prod.price * prod.useNumber).toString()}$</td>
                   <td className="cart__action">
                     <button className="btn__edit">EDIT</button>
                     <button
