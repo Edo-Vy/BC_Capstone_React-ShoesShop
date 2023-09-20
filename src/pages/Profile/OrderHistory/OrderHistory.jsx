@@ -47,6 +47,7 @@ export default function OrderHistory({ order }) {
                 </td>
                 <td className="ord__name">{item?.name}</td>
                 <td className="ord__price">{item?.price}</td>
+
                 <td className="ord__quantity">{item?.quantity}</td>
                 <td className="ord__total">{item?.price * item?.quantity}</td>
               </tr>

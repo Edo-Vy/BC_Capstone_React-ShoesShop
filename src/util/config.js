@@ -65,7 +65,7 @@ export const { sl, ACCESS_TOKEN, USER_LOGIN, getCookie, setCookie, getStore, set
 
 export const http = axios.create({
     baseURL: `https://shop.cyberlearn.vn/api`,
-    timeout: 6000
+    timeout: 30000
 });
 
 //Cấu hình request 

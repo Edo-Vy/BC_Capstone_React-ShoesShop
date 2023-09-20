@@ -10,7 +10,6 @@ import {
   handleDeleteAction,
 } from "../../redux/reducers/cartReducer";
 
-
 export default function Cart() {
   const { listCartTemp } = useSelector((state) => state.cartReducer);
 
@@ -59,10 +58,12 @@ export default function Cart() {
       if (value.checked) {
         let prod = {
           prodId: value.id,
+
           prodQuantity: value.quantity,
         };
 
         order.orderDetail = [...order.orderDetail, prod];
+        console.log("prod", prod);
         deleteProd = [...deleteProd, value.id];
       }
     }
@@ -76,13 +77,12 @@ export default function Cart() {
       alert("Chọn sản phẩm trước khi đặt hàng!");
     }
   };
-// 
+  //
 
-
-  useEffect(()=>{
+  useEffect(() => {
     const action = getUserLogin();
     dispatch(action);
-  },[])
+  }, []);
 
   return (
     <div className="cart">
@@ -105,6 +105,7 @@ export default function Cart() {
               <th>IMG</th>
               <th>Name</th>
               <th>Price</th>
+
               <th className="th__quantity">Quantity</th>
               <th className="th__total">ToTal</th>
               <th>Action</th>
@@ -130,6 +131,7 @@ export default function Cart() {
                   </td>
                   <td className="cart__name">{prod.name}</td>
                   <td className="cart__price">{prod.price} $</td>
+
                   <td className="cart__quantity">
                     <button
                       className="btn__down"
@@ -159,7 +161,9 @@ export default function Cart() {
                       +
                     </button>
                   </td>
-                  <td className="cart__total">{(prod.price * prod.useNumber).toString()}$</td>
+                  <td className="cart__total">
+                    {(prod.price * prod.useNumber).toString()}$
+                  </td>
                   <td className="cart__action">
                     <button className="btn__edit">EDIT</button>
                     <button
@@ -185,7 +189,7 @@ export default function Cart() {
           <tfoot className="tfoot">
             <tr>
               <td colSpan={8}>
-                <button className="btn__subOrder" onClick={handleSubOrder}>
+                <button className="btn__subOrder" type="submit" onClick={handleSubOrder}>
                   SUBMIT ORDER
                 </button>
               </td>

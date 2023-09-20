@@ -11,9 +11,6 @@ const cartReducer = createSlice({
   name: "cartReducer",
   initialState,
   reducers: {
-    setOrderUserAction: (state, action) => {
-      state.listCartTemp = action.payload;
-    },
     addToCartAction: (state, action) => {
       if (!getStoreJSON(USER_LOGIN)) {
         alert("Vui lòng đăng nhập!");
@@ -53,16 +50,13 @@ const cartReducer = createSlice({
       state.listCartTemp = itemCartDel;
     },
     submitOrderAction: (state, action) => {
-      let newListCarts = [...state.listCartTemp];
-      
+      let newListCartTemp = [...state.listCartTemp];
+
       action.payload.orderDetail.forEach((i, index) => {
-        newListCarts = newListCarts.filter(item => item.id !== i.prodId);
-        console.log("newListCart", newListCarts);
+        newListCartTemp = newListCartTemp.filter(item => item.id !== i.prodId);
       });
-      
-      state.listCartTemp = newListCarts;
-    
-      
+      console.log("newListCart", newListCartTemp);
+      state.listCartTemp = newListCartTemp;
     },
     checkAllItem: (state, action) => {
       let { listCartTemp } = state;
@@ -94,7 +88,7 @@ export const {
   addToCartAction,
   changeQuantityAction,
   handleDeleteAction,
-  setOrderUserAction,
+
   checkAllItem,
   checkItem,
   submitOrderAction,
@@ -113,9 +107,7 @@ export const getApiOrderAction = (order) => {
       dispatch(action);
       console.log("submit", action);
       // kiểm tra
-      const action_api = getProfileApi;
-      dispatch(action_api);
-      console.log("api", action_api);
+      dispatch(getProfileApi);
 
       // đã đăng nhập
     } catch (erro) {

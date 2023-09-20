@@ -18,7 +18,7 @@ export default function Profile() {
   const dispatch = useDispatch();
 
   //show checck
-  const [isShown, setIsShown] = useState(false);
+  const [isShown, setIsShown] = useState(true);
   const [isShownLike, setIsShownLike] = useState(false);
 
 

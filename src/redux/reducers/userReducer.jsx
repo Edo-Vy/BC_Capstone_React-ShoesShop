@@ -13,13 +13,14 @@ const initialState = {
   //   userLogin: {},
   userLogin: getStoreJSON(USER_LOGIN),
   newUser: {
-    email: "",
-    password: "",
-    name: "",
-    gender: "",
-    phone: "",
+    // email: "",
+    // password: "",
+    // name: "",
+    // gender: "",
+    // phone: "",
   },
   arrProdFavorite: [],
+ 
 };
 
 const userReducer = createSlice({
@@ -38,7 +39,7 @@ const userReducer = createSlice({
     setProdFavoriteAction: (state, action) => {
       state.arrProdFavorite = action.payload;
     },
-    
+   
   },
 });
 
@@ -46,6 +47,7 @@ export const {
   setUserLoginAction,
   setNewUserAction,
   setProdFavoriteAction,
+ 
   
 } = userReducer.actions;
 
@@ -93,6 +95,7 @@ export const getProfileApi = () => {
       // Tạo ra actioncaretor => dispatch lên redux
       const action = setUserLoginAction(result.data.content);
       dispatch(action);
+     
     } catch (erro) {
       //Token không hợp lệ
       alert("Đăng nhập để vào trang này!");
@@ -199,3 +202,5 @@ export const deleleOrderApi = (id) =>{
 
   }
 }
+
+
