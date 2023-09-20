@@ -12,7 +12,7 @@ export default function HomeTemplate(props) {
 
   return (
     <div id="back_totop">
-      {/* <BackToTop/> */}
+      <BackToTop/>
       <header>
         <Header />
       </header>
