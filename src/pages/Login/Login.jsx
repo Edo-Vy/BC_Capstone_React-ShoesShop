@@ -1,5 +1,5 @@
 //rfc
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { loginFacebookApi, signinApi } from "../../redux/reducers/userReducer";
@@ -7,6 +7,7 @@ import { useDispatch } from "react-redux";
 import { NavLink } from "react-router-dom";
 // facebook
 import FaceBookLogin from "react-facebook-login";
+
 
 export default function Login() {
   // show-hide pass
@@ -44,10 +45,11 @@ export default function Login() {
   //face
   const responseFacebook = (res) => {
     console.log("res?.accessToken", res?.accessToken);
-    if (res?.accessToken) {
-      const action = loginFacebookApi({ facebookToken: res?.accessToken });
-      dispatch(action);
-    }
+    // if (res?.accessToken) {
+    //   const action = loginFacebookApi({ facebookToken: res?.accessToken });
+    //   dispatch(action);
+    // }
+   
   };
   //
 
