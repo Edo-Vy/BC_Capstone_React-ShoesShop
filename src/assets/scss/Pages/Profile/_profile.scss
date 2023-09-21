@@ -1,5 +1,5 @@
 .profile {
-  height: 1262px;
+  height: 1362px;
   position: relative;
   top: 115px;
   overflow: hidden;
@@ -43,29 +43,10 @@
                 .emai__form {
                   margin-bottom: 20px;
                   .email__title {
-                    @include form__title(
-                      15px,
-                      $fs3,
-                      $fw5,
-                      $c-primary-dark,
-                      $lh1
-                    );
+                    @extend .form__title;
                   }
                   .email {
-                    @include form__input(
-                      54px,
-                      443px,
-                      $fs2,
-                      $fw4,
-                      $c-primary-dark,
-                      $lh1,
-                      $bg-c13-secondary,
-                      none
-                    );
-                    &:focus {
-                      // outline: none;
-                      box-shadow: none;
-                    }
+                    @extend .input__form;
                   }
                   .text__warning {
                     margin-top: 5px;
@@ -74,29 +55,13 @@
                 }
                 .phone__form {
                   .phone__title {
-                    @include form__title(
-                      15px,
-                      $fs3,
-                      $fw5,
-                      $c-primary-dark,
-                      $lh1
-                    );
+                    @extend .form__title;
                   }
                   .phone {
-                    @include form__input(
-                      54px,
-                      443px,
-                      $fs2,
-                      $fw4,
-                      $c-primary-dark,
-                      $lh1,
-                      $bg-c13-secondary,
-                      none
-                    );
-                    &:focus {
-                      // outline: none;
-                      box-shadow: none;
-                    }
+                    @extend .input__form;
+                  }
+                  .text__warning {
+                    @extend .text__warning;
                   }
                 }
               }
@@ -106,57 +71,19 @@
                 .name__form {
                   margin-bottom: 20px;
                   .name__title {
-                    @include form__title(
-                      15px,
-                      $fs3,
-                      $fw5,
-                      $c-primary-dark,
-                      $lh1
-                    );
+                    @extend .form__title;
                   }
                   .name {
-                    @include form__input(
-                      54px,
-                      443px,
-                      $fs2,
-                      $fw4,
-                      $c-primary-dark,
-                      $lh1,
-                      $bg-c13-secondary,
-                      none
-                    );
-                    &:focus {
-                      // outline: none;
-                      box-shadow: none;
-                    }
+                    @extend .input__form;
                   }
                 }
                 .password__form {
                   margin-bottom: 20px;
                   .password__title {
-                    @include form__title(
-                      15px,
-                      $fs3,
-                      $fw5,
-                      $c-primary-dark,
-                      $lh1
-                    );
+                    @extend .form__title;
                   }
                   .password {
-                    @include form__input(
-                      54px,
-                      443px,
-                      $fs2,
-                      $fw4,
-                      $c-primary-dark,
-                      $lh1,
-                      $bg-c13-secondary,
-                      none
-                    );
-                    &:focus {
-                      // outline: none;
-                      box-shadow: none;
-                    }
+                    @extend .input__form;
                   }
                 }
                 .form__check {
@@ -218,7 +145,7 @@
     }
     .prof__pro {
       position: relative;
-      top: 350px;
+      top: 365px;
       left: 54px;
       width: 1280px;
       &::before {

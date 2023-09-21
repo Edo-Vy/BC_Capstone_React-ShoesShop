@@ -20,7 +20,7 @@ export default function Home() {
     <div>
       {/*  */}
       <div className="carousel">
-        <div className="carousel-overflow overflow-hidden">
+        <div className="carousel-overflow overflow-hidden container">
           <div
             id="carouselExampleCaptions"
             className="carousel slide"
@@ -138,10 +138,10 @@ export default function Home() {
         <div className="container">
           <h3 className="product__title">Product Feature</h3>
 
-          <div className="row">
+          <div className="row ">
             {arrProduct.map((prod, index) => {
               return (
-                <div className="col-4" key={index}>
+                <div className="col-lg-4 col-md-6" key={index}>
                   <Product product={prod} />
                 </div>
               );

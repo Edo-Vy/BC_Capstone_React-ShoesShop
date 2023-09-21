@@ -156,7 +156,7 @@ export default function Search() {
               <div className="row">
                 {arrProSearch?.map((item, index) => {
                   return (
-                    <div className="col-4" key={index}>
+                    <div className="col-lg-4 col-md-6" key={index}>
                       <Product product={item} />
                     </div>
                   );

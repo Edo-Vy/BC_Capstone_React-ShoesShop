@@ -91,10 +91,10 @@ export default function Detail() {
       <div className="product">
         <h3>-Realate Product -</h3>
         <div className="product__wrap">
-          <div className="row">
+          <div className="row ">
             {proDetail?.relatedProducts?.map((item, index) => {
               return (
-                <div className="col-4" key={index}>
+                <div className="col-lg-4 col-md-6" key={index}>
                   <Product product={item} />
                 </div>
               );

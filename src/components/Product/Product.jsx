@@ -1,6 +1,6 @@
 //rfc
-import React, { useState } from "react";
-import { useDispatch} from "react-redux";
+import React, { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
 import { NavLink } from "react-router-dom";
 import { history } from "../..";
 import {
@@ -14,12 +14,13 @@ export default function Product({ product }) {
 
   const [like, setLike] = useState(false);
   const [idProdLike, setIdProductLike] = useState(product.id);
-
+  
   const handleChangeLike = () => {
     if (!getStoreJSON(USER_LOGIN)) {
       alert("Vui lòng đăng nhập!");
-      history.push("/login");
+      return history.push("/login");
     }
+
     if (!like) {
       setIdProductLike(product?.id);
       const action = getProdLikeAction(idProdLike);
@@ -36,6 +37,7 @@ export default function Product({ product }) {
     }
   };
 
+ 
   return (
     <div>
       <div className="card__pro">

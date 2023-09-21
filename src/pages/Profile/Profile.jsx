@@ -1,27 +1,59 @@
 //rfc
-import { current } from "@reduxjs/toolkit";
+
+import { useFormik } from "formik";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { NavLink } from "react-router-dom";
-import { date } from "yup";
+import * as Yup from "yup";
 import {
   getProdFavoriteApi,
   getProfileApi,
+  getUpdateUserApi,
 } from "../../redux/reducers/userReducer";
 import OrderFavourite from "./OrderFavourite/OrderFavourite";
 import OrderHistory from "./OrderHistory/OrderHistory";
 
 export default function Profile() {
+ 
   // Lấy thông tin userLogin
   const { userLogin } = useSelector((state) => state.userReducer);
   const { arrProdFavorite } = useSelector((state) => state.userReducer);
   const dispatch = useDispatch();
-
+   // update profile
+   const formik = useFormik({
+    initialValues: {
+      email: userLogin?.email,
+      name: userLogin?.name,
+      phone: userLogin?.phone,
+      password: userLogin?.password,
+      gender: userLogin?.gender,
+    },
+    validationSchema: Yup.object().shape({
+      name: Yup.string().required("Tên cập nhật"),
+      phone: Yup.string()
+        .required("Số điện thoại cần cập nhật")
+        .matches(/^[0-9]+$/, "Chỉ được nhập số")
+        .min(10, "Số điện thoại từ 10 - 11 số")
+        .max(11, "Số điện thoại từ 10 - 11 số"),
+    }),
+    onSubmit : ( values) =>{
+      let {email, name, phone, password, gender } = values;
+      let userUpdate = {
+        ...userLogin,
+        ...(email && {email}),
+        ...(name && {name}),
+        ...(phone && {phone}),
+        ...(password && {password}),
+        ...(gender === null || gender === undefined ? {} : {gender}),
+      }
+      const action = getUpdateUserApi(userUpdate);
+      dispatch(action);
+      console.log('up',action);
+      
+    }
+  });
   //show checck
   const [isShown, setIsShown] = useState(true);
   const [isShownLike, setIsShownLike] = useState(false);
-
-
 
   const handleClick = (e) => {
     setIsShown((current) => !current);
@@ -59,7 +91,7 @@ export default function Profile() {
                 <img src={userLogin?.avatar} alt="" />
               </div>
               <div className="info__form">
-                <form className="form__wrap">
+                <form className="form__wrap" onSubmit={formik.handleSubmit}>
                   <div className="form__left">
                     <div className="emai__form from-group">
                       <p className="email__title">Email</p>
@@ -68,7 +100,8 @@ export default function Profile() {
                         placeholder="email"
                         id="email"
                         name="email"
-                        defaultValue={userLogin?.email}
+                        defaultValue={userLogin?.email} disabled
+                  
                       />
                     </div>
                     <div className="phone__form from-group">
@@ -78,8 +111,11 @@ export default function Profile() {
                         placeholder="phone"
                         id="phone"
                         name="phone"
-                        defaultValue={userLogin?.phone}
+                        defaultValue={userLogin?.phone} 
+                        onChange={formik.handleChange}
+                        onBlur={formik.handleBlur}
                       />
+                      {formik.errors.phone ? <span className="text__warning">{formik.errors.phone}</span> : ''}
                     </div>
                   </div>
                   {/* ---- */}
@@ -92,7 +128,11 @@ export default function Profile() {
                         id="name"
                         name="name"
                         defaultValue={userLogin?.name}
+                        onChange={formik.handleChange}
+                        onBlur={formik.handleBlur}
                       />
+                      {formik.errors.name ? <span className="text__warning">{formik.errors.name}</span> : ''}
+
                     </div>
                     <div className="password__form from-group">
                       <p className="password__title">Password</p>
@@ -116,6 +156,7 @@ export default function Profile() {
                               id="radio-male"
                               value={true}
                               defaultChecked={userLogin?.gender}
+                              onChange={formik.handleChange}
                             />
                             <label className="male__title" htmlFor="radio-male">
                               Male
@@ -129,6 +170,7 @@ export default function Profile() {
                               id="radio-female"
                               defaultChecked={!userLogin?.gender}
                               value={false}
+                              onChange={formik.handleChange}
                             />
                             <label
                               className="female__title"
@@ -140,7 +182,7 @@ export default function Profile() {
                         </div>
                       </div>
                       <div className="button__up">
-                        <button className="btn__update">Update</button>
+                        <button className="btn__update" type="submit">Update</button>
                       </div>
                     </div>
                   </div>

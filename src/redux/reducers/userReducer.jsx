@@ -203,4 +203,22 @@ export const deleleOrderApi = (id) =>{
   }
 }
 
+// update user
 
+export const getUpdateUserApi = (profileUpdate) =>{
+
+  return async dispatch =>{
+    try{
+
+      let result = await http.post('/Users/updateProfile', profileUpdate);
+      console.log('update',result);
+      alert('Update thành công!');
+
+    } catch(erro){
+      console.log(erro)
+    } finally{
+      const action = getProfileApi;
+      dispatch(action);
+    }
+  }
+}
