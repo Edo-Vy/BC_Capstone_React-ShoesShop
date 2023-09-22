@@ -1,6 +1,7 @@
 //rfc
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { history } from "../..";
 import {
   changeQuantityAction,
   checkAllItem,
@@ -9,6 +10,7 @@ import {
   getUserLogin,
   handleDeleteAction,
 } from "../../redux/reducers/cartReducer";
+import { getStoreJSON, USER_LOGIN } from "../../util/config";
 
 export default function Cart() {
   const { listCartTemp } = useSelector((state) => state.cartReducer);
@@ -80,9 +82,11 @@ export default function Cart() {
   //
 
   useEffect(() => {
-    const action = getUserLogin();
-    dispatch(action);
-  }, []);
+    if (!getStoreJSON(USER_LOGIN)) {
+      alert("Bạn chưa đăng nhập!");
+      history.push("/login");
+    }
+  });
 
   return (
     <div className="cart">
@@ -189,7 +193,11 @@ export default function Cart() {
           <tfoot className="tfoot">
             <tr>
               <td colSpan={8}>
-                <button className="btn__subOrder" type="submit" onClick={handleSubOrder}>
+                <button
+                  className="btn__subOrder"
+                  type="submit"
+                  onClick={handleSubOrder}
+                >
                   SUBMIT ORDER
                 </button>
               </td>

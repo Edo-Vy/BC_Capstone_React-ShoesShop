@@ -7,16 +7,16 @@ export default function Footer() {
     <div>
               <footer className="footer">
             <div className="footer_top">
-                <div className=" container">
+                <div className="container">
                     <div className="row">
                         <div className="col-lg-4 col-md-6">
                             <div className="bd_right">
                                 <h4>GET HELP</h4>
                                 <ul>
-                                    <li><NavLink to="home">Home</NavLink></li>
-                                    <li><NavLink to="search?k=nike">Nike</NavLink></li>
-                                    <li><NavLink to="search?k=adidas">Adidas</NavLink></li>
-                                    <li><NavLink to="home">Contact</NavLink></li>
+                                    <li><NavLink to="/home">Home</NavLink></li>
+                                    <li><NavLink to="/search?q=nike">Nike</NavLink></li>
+                                    <li><NavLink to="/search?q=adidas">Adidas</NavLink></li>
+                                    <li><NavLink to="/home">Contact</NavLink></li>
                                 </ul>
                             </div>
                         </div>
@@ -24,10 +24,10 @@ export default function Footer() {
                             <div className="bd_right">
                                 <h4>SUPPORT</h4>
                                 <ul>
-                                    <li><a href="#">About</a></li>
-                                    <li><a href="#">Contact</a></li>
-                                    <li><a href="#">Help</a></li>
-                                    <li><a href="#">Phone</a></li>
+                                    <li><NavLink to="/">About</NavLink></li>
+                                    <li><NavLink to="/">Contact</NavLink></li>
+                                    <li><NavLink to="/">Help</NavLink></li>
+                                    <li><NavLink to="/">Phone</NavLink></li>
                                 </ul>
                             </div>
                         </div>
@@ -35,8 +35,8 @@ export default function Footer() {
                             <div className="b">
                                 <h4>REGISTER</h4>
                                 <ul>
-                                    <li><NavLink to="register">Register</NavLink></li>
-                                    <li><NavLink to="login">Login</NavLink></li>
+                                    <li><NavLink to="/register">Register</NavLink></li>
+                                    <li><NavLink to="/login">Login</NavLink></li>
                                 </ul>
                             </div>
                         </div>
