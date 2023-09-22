@@ -104,16 +104,16 @@ export default function Header() {
                   >
                     Home
                   </NavLink>
-                  <NavLink className="nav-link  nav__link" href="/">
+                  <NavLink className="nav-link  nav__link" to="/">
                     Men
                   </NavLink>
-                  <NavLink className="nav-link  nav__link" href="/">
+                  <NavLink className="nav-link  nav__link" to="/">
                     Woman
                   </NavLink>
-                  <NavLink className="nav-link  nav__link" href="/">
+                  <NavLink className="nav-link  nav__link" to="/">
                     Kid
                   </NavLink>
-                  <NavLink className="nav-link  nav__link" href="/">
+                  <NavLink className="nav-link  nav__link" to="/">
                     Sport
                   </NavLink>
                 </div>
